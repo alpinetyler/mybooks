@@ -39,9 +39,15 @@
     ]
   },
   "main": "server/index.js",
-  "proxy": "http://localhost:5017",
+  "proxy": "http://localhost:5050",
   "nodemonConfig": {
     "ext": "js,sql",
-    "ignore": ["src/*", "public/*"]
+    "ignore": [
+      "src/*",
+      "public/*"
+    ]
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

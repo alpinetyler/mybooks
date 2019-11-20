@@ -31,3 +31,112 @@
     transform: rotate(360deg);
   }
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+
+.groceries {
+  background-color: lightsteelblue;
+}
+
+.maintenance {
+  background-color: lightgoldenrodyellow;
+}
+
+/* .utilities {
+  background-color: lightgreen;
+} */
+
+.gasoline {
+  background-color: orange;
+}
+
+.Food {
+  background-color: pink;
+}
+
+.food {
+  background-color: pink;
+}
+
+/* .WhoKnows {
+  background-color: chartreuse;
+} */
+
+/* .boo {
+  background-color: green;
+} */
+
+/* .bb {
+  background-color: hotpink;
+} */
+
+/* .cc {
+  background-color: turquoise;
+} */
+
+
+.misc {
+  background-color: lightsalmon;
+}
+
+.horses {
+  background-color: chartreuse;
+}
+
+.trash {
+  background-color: turquoise;
+}
+
+.medical {
+  background-color: red;
+}
+
+.entertainment {
+  background-color: paleturquoise;
+}
+
+/* .savings {
+  background-color: lightseagreen;
+} */
+
+/* .donations {
+  background-color: lightcyan;
+} */
+
+.addExpense {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: apple-chancery;
+
+}
+
+#listExpense {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: apple-chancery;
+}
+
+.hoverdelete {
+  transition: color 0.1s linear;
+ -webkit-transition: color 0.1s linear;
+ -moz-transition: color 0.1s linear;
+}
+
+.hoverdelete:hover {
+  color: red;
+  /* font-size: 30px; */
+}
+
+.hoveredit {
+  transition: color 0.1s linear;
+ -webkit-transition: color 0.1s linear;
+ -moz-transition: color 0.1s linear;
+}
+.hoveredit:hover {
+  color: limegreen;
+  /* font-size: 30px; */
+}
