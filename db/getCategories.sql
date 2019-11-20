@@ -1,1 +1,3 @@
-SELECT * FROM category;
+SELECT * FROM category
+
+ORDER BY categoryname ASC;

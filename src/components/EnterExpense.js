@@ -36,11 +36,6 @@ export default class EnterExpense extends Component {
             })
         }).catch(err => console.log('error getting expenses:', err))
 
-        axios.get('/api/categories').then((res) => {
-            this.setState({
-                categories: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
     }
     
 

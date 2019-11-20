@@ -28,10 +28,7 @@ export default class ListExpense extends Component {
             edit: !this.state.edit
         })
 
-        // componentDidMount() {
-        //     //keep user on state if screen is re-freshed        
-        //     this.props.getUser();
-        // }
+        
 
     render() {
         let {expense, updateExpense, beginningBalance} = this.props

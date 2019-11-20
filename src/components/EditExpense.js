@@ -1,4 +1,5 @@
    import React, {Component} from 'react';
+   import axios from 'axios';
 
 //    //display number in us currency format
 // const formatter = new Intl.NumberFormat('en-US', {
@@ -24,9 +25,18 @@
                total,
                id,
 
-               expenses: []
+               expenses: [],
+               categories: []
            }
        }
+
+       componentDidMount() {
+        axios.get('/api/categories').then((res) => {
+            this.setState({
+                categories: res.data
+            })
+        }).catch(err => console.log('error getting expenses:', err))
+    }
 
        handleChange = e => {
            let { value, name } = e.target
@@ -94,13 +104,17 @@
                   value={this.state.notes} />
                   </td>
               <td style={styles.colFour}>
-              <input
-                  type="text"
-                  name="category"
-                  placeholder="Category"
-                  className="addExpense"
-                  onChange={this.handleChange}
-                  value={this.state.category} />
+              <select style={styles.select}
+                                name="category" onChange={this.handleChange}>
+                                selected<option>{this.state.category}</option>
+                                {this.state.categories.map((category, index) => {
+                                    return (
+                                        <option
+                                            key={category.id}
+                                            value={category.categoryname}>{category.categoryname}</option>
+                                    )
+                                })}
+                            </select>
                   </td>
               <td style={styles.colFive}>
                   </td>
@@ -157,5 +171,10 @@
     },
     checkbox: {
         width: '10px'
+    },
+    select: {
+        fontFamily: 'apple-chancery',
+        fontSize: '20px',
+        fontWeight: 'bold'
     }
 }

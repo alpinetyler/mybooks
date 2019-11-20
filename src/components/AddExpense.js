@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import axios from 'axios';
 
 var today = new Date();
 var date = (today.getMonth() + 1) + '/' + today.getDate();
@@ -13,7 +14,6 @@ var date = (today.getMonth() + 1) + '/' + today.getDate();
 export default class AddExpense extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             name: '',
             date: date,
@@ -23,9 +23,18 @@ export default class AddExpense extends Component {
             category: '',
 
             expenses: [],
+            categories: [],
 
             add: false
         }
+    }
+
+    componentDidMount() {
+        axios.get('/api/categories').then((res) => {
+            this.setState({
+                categories: res.data
+            })
+        }).catch(err => console.log('error getting expenses:', err))
     }
 
     handleChange = e => {
@@ -53,96 +62,103 @@ export default class AddExpense extends Component {
     }
 
     toggleAdd = () =>
-    this.setState({
-        add: !this.state.add
-    })
+        this.setState({
+            add: !this.state.add
+        })
 
     toggleChange = () => {
         this.setState({
             ischecked: !this.state.ischecked // flip boolean value
         })
     }
-  
+
 
 
 
     render() {
-        return(
+        return (
             <>
-           
-            <tr>
-              <td style={styles.colOne}>
-                <input
-                    type="text"
-                    className="addExpense"
-                    style={styles.date}
-                    name="date"
-                    placeholder="Date"
-                    onChange={this.handleChange}
-                    value={this.state.date} />
-                </td>
-                <td style={styles.colTwo}>
-                <input
-                    type="text"
-                    className="addExpense"
-                    name="name"
-                    placeholder="Name"
-                    onChange={this.handleChange}
-                    value={this.state.name} />
-                </td>
-                <td style={styles.colThree}>
-                <input
-                    type="text"
-                    className="addExpense"
-                    name="amount"
-                    style={styles.notes}
-                    placeholder="Amount"
-                    onChange={this.handleChange}
-                    value={this.state.amount} />
+
+                <tr>
+                    <td style={styles.colOne}>
+                        <input
+                            type="text"
+                            className="addExpense"
+                            style={styles.date}
+                            name="date"
+                            placeholder="Date"
+                            onChange={this.handleChange}
+                            value={this.state.date} />
                     </td>
-                <td>
-                <input
-                    type="checkbox"
-                    name="ischecked"
-                    style={styles.checkbox}
-                    checked={this.state.ischecked}
-                    onChange={this.toggleChange}
-                    
-                    />
+                    <td style={styles.colTwo}>
+                        <input
+                            type="text"
+                            className="addExpense"
+                            name="name"
+                            placeholder="Name"
+                            onChange={this.handleChange}
+                            value={this.state.name} />
                     </td>
-                <td style={styles.notes}>
-                <input
-                    type="text"
-                    className="addExpense"
-                    style={styles.notes}
-                    name="notes"
-                    placeholder="Notes"
-                    onChange={this.handleChange}
-                   />
+                    <td style={styles.colThree}>
+                        <input
+                            type="text"
+                            className="addExpense"
+                            name="amount"
+                            style={styles.notes}
+                            placeholder="Amount"
+                            onChange={this.handleChange}
+                            value={this.state.amount} />
                     </td>
-                
-                <td style={styles.colFour}>
-                <input
-                    type="text"
-                    className="addExpense"
-                    name="category"
-                    placeholder="Category"
-                    onChange={this.handleChange}
-                    value={this.state.category} />
+                    <td>
+                        <input
+                            type="checkbox"
+                            name="ischecked"
+                            style={styles.checkbox}
+                            checked={this.state.ischecked}
+                            onChange={this.toggleChange}
+                            value={this.state.ischecked}
+
+                        />
                     </td>
-                <td style={styles.colFive}>
-                <button onClick={this.handleClick}>Save</button>
-                </td>
+                    <td style={styles.notes}>
+                        <input
+                            type="text"
+                            className="addExpense"
+                            style={styles.notes}
+                            name="notes"
+                            placeholder="Notes"
+                            onChange={this.handleChange}
+                            value={this.state.notes}
+                        />
+                    </td>
+
+                    <td style={styles.colFour}>
+                    <select style={styles.select}
+                                name="category" onChange={this.handleChange}>
+                                    value={this.state.category}
+                                Selected<option>Choose Category</option>
+                                {this.state.categories.map((category, index) => {
+                                    return (
+                                        <option
+                                            key={category.id}
+                                            value={category.categoryname}>{category.categoryname}</option>
+                                    )
+                                })}
+                            </select>
+                    </td>
+                    <td style={styles.colFive}>
+                        <button onClick={this.handleClick}>Save</button>
+                    </td>
                 </tr>
-            
+
             </>
         )
-        
+
     }
 }
 
 let styles = {
-  
+
     colOne: {
         width: 100
     },
@@ -181,5 +197,10 @@ let styles = {
     },
     notes: {
         width: '100px'
+    },
+    select: {
+        fontFamily: 'apple-chancery',
+        fontSize: '20px',
+        fontWeight: 'bold'
     }
 }
