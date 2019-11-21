@@ -4,6 +4,9 @@ import axios from 'axios';
 var today = new Date();
 var date = (today.getMonth() + 1) + '/' + today.getDate();
 
+var today = new Date();
+var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
 // //display number in us currency format
 // const formatter = new Intl.NumberFormat('en-US', {
 //     style: 'currency',
@@ -21,6 +24,8 @@ export default class AddExpense extends Component {
             ischecked: false,
             notes: '',
             category: '',
+            fulldate: fulldate,
+            userid: 1,
 
             expenses: [],
             categories: [],
@@ -38,7 +43,7 @@ export default class AddExpense extends Component {
     }
 
     handleChange = e => {
-        console.log(1111, this.state.ischecked)
+        // console.log(1111, this.state.ischecked)
         let { value, name } = e.target
         this.setState({
             [name]: value
@@ -56,6 +61,8 @@ export default class AddExpense extends Component {
             notes: '',
             category: '',
             class: '',
+            fulldate: fulldate,
+            userid: 1,
 
             add: false
         })
