@@ -1,7 +1,9 @@
 module.exports = {
-    read: (req, res) => {
+    read: (req, res, next) => {
         let db = req.app.get('db')
-        db.getExpenses().then((response) => {
+        let month = req.query.month
+        let year = req.query.year
+        db.getExpenses(month, year).then((response) => {
             res.send(response)
         }).catch(err => console.log(err))
     },

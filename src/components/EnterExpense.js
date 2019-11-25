@@ -4,8 +4,8 @@ import axios from 'axios';
 import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
 
-// var today = new Date();
-// var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 //display number in us currency format
 const formatter = new Intl.NumberFormat('en-US', {
@@ -19,7 +19,9 @@ export default class EnterExpense extends Component {
         super(props)
         this.state = {
             expenses: [],
-            categories: []
+            categories: [],
+            month: '',
+            year: ''
         }
     }
 
@@ -30,7 +32,13 @@ export default class EnterExpense extends Component {
         })
 
     componentDidMount() {
-        axios.get('/api/expenses').then((res) => {
+        axios.get('/api/expenses', {
+            params: {
+                
+                month: this.state.month,
+                year: this.state.year
+            }
+        }).then((res) => {
             this.setState({
                 expenses: res.data
             })
@@ -84,7 +92,17 @@ export default class EnterExpense extends Component {
         return (
             <div className="wrapper">
                 
-                <h1 id="listExpense">November Budget 2019</h1>
+                <h1 id="listExpense">
+                    <select
+                                name="month" onChange={this.handleChange}>
+                                    value={this.state.month}
+                                Selected<option>Choose Month</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                
+                            </select> Budget 2019</h1>
                     <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                 <table>
                     <tbody>
