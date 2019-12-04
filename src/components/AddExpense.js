@@ -4,7 +4,6 @@ import axios from 'axios';
 var today = new Date();
 var date = (today.getMonth() + 1) + '/' + today.getDate();
 
-var today = new Date();
 var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 // //display number in us currency format

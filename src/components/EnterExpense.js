@@ -6,6 +6,8 @@ import AddExpense from './AddExpense'
 
 var today = new Date();
 var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+var year = today.getFullYear();
+var month = today.getMonth() + 1
 
 //display number in us currency format
 const formatter = new Intl.NumberFormat('en-US', {
@@ -32,6 +34,30 @@ export default class EnterExpense extends Component {
         })
 
     componentDidMount() {
+       
+        axios.get('/api/expenses', {
+            params: {
+                
+                month: month,
+                year: year
+            }
+        }).then((res) => {
+            this.setState({
+                expenses: res.data
+            })
+        }).catch(err => console.log('error getting expenses:', err))
+
+    }
+
+    handleChange = e => {
+        
+        let { value, name } = e.target
+        this.setState({
+            [name]: value
+        })
+
+        console.log(333, this.state.month)
+
         axios.get('/api/expenses', {
             params: {
                 
@@ -43,7 +69,6 @@ export default class EnterExpense extends Component {
                 expenses: res.data
             })
         }).catch(err => console.log('error getting expenses:', err))
-
     }
     
 
@@ -87,22 +112,31 @@ export default class EnterExpense extends Component {
 
     render() {
         let beginningBalance = 10202.15
-        console.log(4444, this.state.categories)
-
+        console.log(777, this.state.month, this.state.year)
         return (
             <div className="wrapper">
                 
                 <h1 id="listExpense">
                     <select
                                 name="month" onChange={this.handleChange}>
-                                    value={this.state.month}
-                                Selected<option>Choose Month</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
+                                Selected<option>Choose month</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
                                 <option value="10">October</option>
                                 <option value="11">November</option>
+                                <option value="12">December</option>
                                 
-                            </select> Budget 2019</h1>
+                            </select> Budget  
+                            <select
+                                name="year" onChange={this.handleChange}>
+                                Selected<option value="2019">2019</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                
+                            </select></h1>
                     <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                 <table>
                     <tbody>
