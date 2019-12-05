@@ -49,6 +49,24 @@ export default class EnterExpense extends Component {
 
     }
 
+    componentDidUpdate(prevProps: any, prevState: any) {
+        const { month, year} = this.state;
+        if(month !== prevState.month || year != prevState.year){
+            axios.get('/api/expenses', {
+                params: {
+                    
+                    month: month,
+                    year: year
+                }
+            }).then((res) => {
+                this.setState({
+                    expenses: res.data
+                })
+            }).catch(err => console.log('error getting expenses:', err))
+        }
+  
+    }
+
     handleChange = e => {
         
         let { value, name } = e.target
@@ -56,19 +74,8 @@ export default class EnterExpense extends Component {
             [name]: value
         })
 
-        console.log(333, this.state.month)
+        // console.log(333, this.state.month)
 
-        axios.get('/api/expenses', {
-            params: {
-                
-                month: this.state.month,
-                year: this.state.year
-            }
-        }).then((res) => {
-            this.setState({
-                expenses: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
     }
     
 
