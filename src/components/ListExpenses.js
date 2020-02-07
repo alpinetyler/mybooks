@@ -52,25 +52,25 @@ export default class ListExpense extends Component {
                         <>
                <tr>
 
-                <td style={styles.colOne} id="listExpense">
+                <td onClick={this.toggleEdit} style={styles.colOne} id="listExpense">
                     {expense.date}
                 </td>
-                <td style={styles.colTwo} id="listExpense" className={`${expense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.colTwo} id="listExpense" className={`${expense.category}`}>
                     {expense.name}
                 </td>
-                <td style={styles.colThree} id="listExpense" className={`${expense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.colThree} id="listExpense" className={`${expense.category}`}>
                     {formatter.format(expense.amount)}
                 </td>
-                <td style={styles.checkbox} id="listExpense" className={`${expense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.checkbox} id="listExpense" className={`${expense.category}`}>
                     <input
                     type="checkbox"
                     defaultChecked={expense.ischecked}
                     />
                 </td>
-                <td style={styles.notes} id="listExpense" className={`${expense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${expense.category}`}>
                     {expense.notes}
                 </td>
-                <td style={styles.colFour} id="listExpense" className={`${expense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.colFour} id="listExpense" className={`${expense.category}`}>
                     {expense.category}
                 </td>
                 <td style={styles.colFive} id="listExpense">
@@ -78,7 +78,7 @@ export default class ListExpense extends Component {
                 </td>
                 <td style={styles.colSix}>
 
-                <span style={styles.edit} onClick={this.toggleEdit}><span className="hoveredit">&#9998;</span>  /   </span>
+                {/* <span style={styles.edit} onClick={this.toggleEdit}><span className="hoveredit">&#9998;</span>  /   </span> */}
                 <span style={styles.edit} className="fa" onClick={this.props.deleteExpense}><span className="hoverdelete"> &#xf014;</span></span>
                 </td>
                </tr>
