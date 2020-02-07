@@ -173,7 +173,7 @@
         width: '10px'
     },
     select: {
-        fontFamily: 'apple-chancery',
+        fontFamily: 'Times New Roman',
         fontSize: '20px',
         fontWeight: 'bold'
     }

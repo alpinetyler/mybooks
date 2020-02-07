@@ -123,7 +123,7 @@ export default class EnterExpense extends Component {
         return (
             <div className="wrapper">
                 
-                <h1 id="listExpense">
+                <h1 id="listExpense"><p>Budget</p>
                     <select
                                 name="month" onChange={this.handleChange}>
                                 Selected<option>Choose month</option>
@@ -150,7 +150,7 @@ export default class EnterExpense extends Component {
                                 <option value="2022">2022</option>
                                 <option value="2023">2023</option>
                                 
-                            </select>  Expenses </h1>
+                            </select></h1>
                             
                     <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                 <table>
