@@ -51,7 +51,7 @@ export default class EnterExpense extends Component {
 
     componentDidUpdate(prevProps: any, prevState: any) {
         const { month, year} = this.state;
-        if(month !== prevState.month || year != prevState.year){
+        if(month !== prevState.month || year !== prevState.year){
             axios.get('/api/expenses', {
                 params: {
                     
@@ -118,7 +118,7 @@ export default class EnterExpense extends Component {
     }
 
     render() {
-        let beginningBalance = 10202.15
+        let beginningBalance = 8000
         console.log(777, this.state.month, this.state.year)
         return (
             <div className="wrapper">
@@ -127,23 +127,31 @@ export default class EnterExpense extends Component {
                     <select
                                 name="month" onChange={this.handleChange}>
                                 Selected<option>Choose month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
                                 <option value="8">August</option>
                                 <option value="9">September</option>
                                 <option value="10">October</option>
                                 <option value="11">November</option>
                                 <option value="12">December</option>
                                 
-                            </select> Budget  
+                            </select> 
                             <select
                                 name="year" onChange={this.handleChange}>
-                                Selected<option value="2019">2019</option>
+                                Selected<option>Choose Year</option>
                                 <option value="2019">2019</option>
                                 <option value="2020">2020</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
                                 <option value="2023">2023</option>
                                 
-                            </select></h1>
+                            </select>  Expenses </h1>
+                            
                     <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                 <table>
                     <tbody>
