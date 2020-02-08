@@ -77,6 +77,18 @@ export default class EnterExpense extends Component {
         // console.log(333, this.state.month)
 
     }
+
+    // setMonth = e => {
+    //     let {name, value} = e.target
+    //     console.log(1111, month, year)
+    //     this.setState({
+    //         month: month,
+    //         year: year
+    //     })
+
+    //     // console.log(333, this.state.month)
+
+    // }
     
 
     createExpense = newExpense => {
@@ -119,12 +131,14 @@ export default class EnterExpense extends Component {
 
     render() {
         let beginningBalance = 8000
-        console.log(777, this.state.month, this.state.year)
         return (
             <div className="wrapper">
                 
                 <h1 id="listExpense"><p>Budget</p>
-                    <select
+
+                    <button onClick={this.handleChange} name="11" value="2019">November 2019</button>
+
+                    {/* <select
                                 name="month" onChange={this.handleChange}>
                                 Selected<option>Choose month</option>
                                 <option value="1">January</option>
@@ -150,7 +164,8 @@ export default class EnterExpense extends Component {
                                 <option value="2022">2022</option>
                                 <option value="2023">2023</option>
                                 
-                            </select></h1>
+                            </select> */}
+                            </h1>
                             
                     <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                 <table>
