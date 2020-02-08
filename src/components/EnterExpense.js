@@ -73,22 +73,14 @@ export default class EnterExpense extends Component {
         this.setState({
             [name]: value
         })
-
-        // console.log(333, this.state.month)
-
     }
 
-    // setMonth = e => {
-    //     let {name, value} = e.target
-    //     console.log(1111, month, year)
-    //     this.setState({
-    //         month: month,
-    //         year: year
-    //     })
-
-    //     // console.log(333, this.state.month)
-
-    // }
+    setMonth = (month, year) => {
+        this.setState({
+            month: month,
+            year: year
+        })
+    }
     
 
     createExpense = newExpense => {
@@ -136,7 +128,13 @@ export default class EnterExpense extends Component {
                 
                 <h1 id="listExpense"><p>Budget</p>
 
-                    <button onClick={this.handleChange} name="11" value="2019">November 2019</button>
+                    <button onClick={e => this.setMonth("8", "2019")}>August 2019</button>
+                    <button onClick={e => this.setMonth("9", "2019")}>September 2019</button>
+                    <button onClick={e => this.setMonth("10", "2019")}>October 2019</button>
+                    <button onClick={e => this.setMonth("11", "2019")}>November 2019</button>
+                    <button onClick={e => this.setMonth("12", "2019")}>December 2019</button>
+                    <button onClick={e => this.setMonth("1", "2020")}>January 2019</button>
+                    <button onClick={e => this.setMonth("2", "2020")}>February 2019</button>
 
                     {/* <select
                                 name="month" onChange={this.handleChange}>
