@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -39,77 +40,48 @@
 }
 
 .groceries {
-  background-color: lightsteelblue;
+  color: blue;
 }
 
 .maintenance {
-  background-color: lightgoldenrodyellow;
+  color: darkcyan;
 }
 
-/* .utilities {
-  background-color: lightgreen;
-} */
-
-.gasoline {
-  background-color: orange;
+.utilities {
+  color: forestgreen;
 }
 
-.Food {
-  background-color: pink;
+.gasoline { 
+  color: purple;
 }
-
-.food {
-  background-color: pink;
-}
-
-/* .WhoKnows {
-  background-color: chartreuse;
-} */
-
-/* .boo {
-  background-color: green;
-} */
-
-/* .bb {
-  background-color: hotpink;
-} */
-
-/* .cc {
-  background-color: turquoise;
-} */
-
 
 .miscellaneous {
-  background-color: lightsalmon;
+  color: lightsalmon;
 }
 
 .horses {
-  background-color: chartreuse;
-}
-
-.trash {
-  background-color: turquoise;
+  color: darkorchid;
 }
 
 .medical {
-  background-color: red;
+  color: red;
 }
 
 .insurance {
-  background-color: coral;
+  color: coral;
 }
 
 .entertainment {
-  background-color: paleturquoise;
+  color: darkoranget;
+} 
+
+.savings {
+  color: lightseagreen;
 }
 
-/* .savings {
-  background-color: lightseagreen;
-} */
-
-/* .donations {
+.donations {
   background-color: lightcyan;
-} */
+} 
 
 .addExpense {
   font-size: 20px;
@@ -119,7 +91,7 @@
 }
 
 #listExpense {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -132,7 +104,7 @@
 
 .hoverdelete:hover {
   color: red;
-  /* font-size: 30px; */
+  /* font-size: 30px;
 }
 
 .hoveredit {
@@ -143,4 +115,8 @@
 .hoveredit:hover {
   color: limegreen;
   /* font-size: 30px; */
+}
+
+td {
+  border-bottom: 1px black solid;
 }

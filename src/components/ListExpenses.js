@@ -32,6 +32,9 @@ export default class ListExpense extends Component {
 
     render() {
         let {expense, updateExpense, beginningBalance} = this.props
+        
+        console.log(2222, expense.month, expense.day)
+        
         // let {user} = this.props
         // let admin = user && user.isadmin
         
@@ -53,7 +56,7 @@ export default class ListExpense extends Component {
                <tr>
 
                 <td onClick={this.toggleEdit} style={styles.colOne} id="listExpense">
-                    {expense.date}
+                    {expense.month}/{expense.day}
                 </td>
                 <td onClick={this.toggleEdit} style={styles.colTwo} id="listExpense" className={`${expense.category}`}>
                     {expense.name}
