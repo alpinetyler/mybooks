@@ -1,10 +1,10 @@
 UPDATE homeexpenses
 SET name = ${name},
-date = ${date},
 amount = ${amount},
 ischecked = ${ischecked},
 notes = ${notes},
-category = ${category}
+category = ${category},
+fulldate = ${fulldate}
 WHERE id = ${id};
 
 SELECT DISTINCT id, date, name, amount, ischecked, notes, category, extract(day FROM fulldate) as day, 
