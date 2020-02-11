@@ -56,7 +56,8 @@ export default class ListExpense extends Component {
                <tr>
 
                 <td onClick={this.toggleEdit} style={styles.colOne} id="listExpense">
-                    {expense.month}/{expense.day}
+                    {/* {expense.month}/{expense.day} */}
+                    {expense.date}
                 </td>
                 <td onClick={this.toggleEdit} style={styles.colTwo} id="listExpense" className={`${expense.category}`}>
                     {expense.name}

@@ -13,12 +13,11 @@
        constructor(props) {
            super(props)
 
-           let { id, name, month, day, amount, ischecked, notes, category, total} = props.expense
+           let { id, name, date, amount, ischecked, notes, category, total} = props.expense
 
            this.state = {
                name,
-               month,
-               day,
+               date,
                amount,
                ischecked,
                notes,
@@ -64,7 +63,8 @@
                   placeholder="Date"
                   style={styles.date}
                   onChange={this.handleChange}
-                  defaultValue={`${this.state.month}/${this.state.day}`}/>
+                //   defaultValue={`${this.state.month}/${this.state.day}`}/>
+                  value={this.state.date}/>
               </td>
               <td style={styles.colTwo}>
               <input

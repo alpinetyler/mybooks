@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import swal from 'sweetalert';
 
 import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
@@ -93,12 +94,36 @@ export default class EnterExpense extends Component {
     }
 
     deleteExpense = id => {
-       
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this expense!",
+            icon: "warning",
+            buttons: {
+                cancel: "No, Don't Delete!",
+                dangerMode: "Yes, Delete It!",
+            },
+            
+          })
+          .then((willDelete) => {
+            if (willDelete) {
             axios.delete(`/api/expenses/${id}`)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
+              swal("Poof! Your expense has been deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("Your expense is safe!");
+            }
+          });
+    //    if (swal("Are you sure you want to delete this expense?")){
         
-        
+        // if user clicks "ok" dexpense is deleted
+            // axios.delete(`/api/expenses/${id}`)
+            // .then(res => this.setState({ expenses: res.data }))
+            // .catch(err => console.log(err))
+       
     }
     
     handleClear = () => {
@@ -127,7 +152,8 @@ export default class EnterExpense extends Component {
             <div className="wrapper">
                 
                 <h1 id="listExpense"><p>Budget</p>
-
+                    
+                    <button onClick={e => this.setMonth("7", "2019")}>July 2019</button>
                     <button onClick={e => this.setMonth("8", "2019")}>August 2019</button>
                     <button onClick={e => this.setMonth("9", "2019")}>September 2019</button>
                     <button onClick={e => this.setMonth("10", "2019")}>October 2019</button>

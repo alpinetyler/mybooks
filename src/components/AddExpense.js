@@ -153,7 +153,18 @@ export default class AddExpense extends Component {
                             </select>
                     </td>
                     <td style={styles.colFive}>
-                        <button onClick={this.handleClick}>Save</button>
+                        <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>
+                    </td>
+                    <td style={styles.colSix}>
+                        <input
+                            type="text"
+                            className="addExpense"
+                            style={styles.notes}
+                            name="fulldate"
+                            placeholder="Full Date"
+                            onChange={this.handleChange}
+                            value={this.state.fulldate}
+                        />
                     </td>
                 </tr>
 
@@ -208,5 +219,10 @@ let styles = {
         fontFamily: 'Times New Roman',
         fontSize: '20px',
         fontWeight: 'bold'
+    },
+    saveButton: {
+        backgroundColor: 'green',
+        color: 'white',
+        fontSize: '15px'
     }
 }
