@@ -153,14 +153,14 @@ export default class EnterExpense extends Component {
                 
                 <h1 id="listExpense"><p>Budget</p>
                     
-                    <button onClick={e => this.setMonth("7", "2019")}>July 2019</button>
-                    <button onClick={e => this.setMonth("8", "2019")}>August 2019</button>
-                    <button onClick={e => this.setMonth("9", "2019")}>September 2019</button>
-                    <button onClick={e => this.setMonth("10", "2019")}>October 2019</button>
-                    <button onClick={e => this.setMonth("11", "2019")}>November 2019</button>
-                    <button onClick={e => this.setMonth("12", "2019")}>December 2019</button>
-                    <button onClick={e => this.setMonth("1", "2020")}>January 2019</button>
-                    <button onClick={e => this.setMonth("2", "2020")}>February 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("7", "2019")}>July 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("8", "2019")}>August 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("9", "2019")}>September 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("10", "2019")}>October 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("11", "2019")}>November 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("12", "2019")}>December 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("1", "2020")}>January 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("2", "2020")}>February 2019</button>
 
                     {/* <select
                                 name="month" onChange={this.handleChange}>
