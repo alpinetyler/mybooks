@@ -94,7 +94,7 @@ export default class EnterExpense extends Component {
     }
 
     deleteExpense = id => {
-
+        // from sweet alert
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this expense!",
@@ -153,7 +153,7 @@ export default class EnterExpense extends Component {
                 
                 <h1 id="listExpense"><p>Budget</p>
                     
-                    <button class="btn" onClick={e => this.setMonth("7", "2019")}>July 2019</button>
+                    <button class="btn" onClick={e => this.setMonth("7", "2019")} active>July 2019</button>
                     <button class="btn" onClick={e => this.setMonth("8", "2019")}>August 2019</button>
                     <button class="btn" onClick={e => this.setMonth("9", "2019")}>September 2019</button>
                     <button class="btn" onClick={e => this.setMonth("10", "2019")}>October 2019</button>

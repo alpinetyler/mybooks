@@ -13,7 +13,7 @@
        constructor(props) {
            super(props)
 
-           let { id, name, date, amount, ischecked, notes, category, total} = props.expense
+           let { id, name, date, amount, ischecked, notes, category, total, fulldate} = props.expense
 
            this.state = {
                name,
@@ -24,6 +24,7 @@
                category,
                total,
                id,
+               fulldate,
 
                expenses: [],
                categories: []

@@ -33,8 +33,6 @@ export default class ListExpense extends Component {
     render() {
         let {expense, updateExpense, beginningBalance} = this.props
         
-        console.log(2222, expense.month, expense.day)
-        
         // let {user} = this.props
         // let admin = user && user.isadmin
         
