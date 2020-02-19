@@ -143,7 +143,7 @@ export default class AddExpense extends Component {
                                 name="category" onChange={this.handleChange}>
                                     value={this.state.category}
                                 Selected<option>Choose Category</option>
-                                {this.state.categories.map((category, index) => {
+                                {this.state.categories.map((category) => {
                                     return (
                                         <option
                                             key={category.id}

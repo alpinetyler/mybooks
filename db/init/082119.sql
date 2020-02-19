@@ -13,3 +13,10 @@ CREATE TABLE category(
     id SERIAL PRIMARY KEY,
     categoryname VARCHAR
 );
+
+CREATE TABLE monthList(
+    id SERIAL PRIMARY KEY,
+    monthName VARCHAR,
+    monthNumber INT,
+    years INT
+);

@@ -8,6 +8,7 @@ const session = require('express-session')
 
 const ExpenseCtrl = require('./controllers/expenses')
 const CategoryCtrl = require('./controllers/categories')
+const MonthCtrl = require('./controllers/months')
 
 const app = express()
 
@@ -47,4 +48,9 @@ app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete expense
 // Create, Read, Delete categories
 app.post('/api/categories', CategoryCtrl.create)//create category
 app.get('/api/categories', CategoryCtrl.read)//read categories
-app.delete('/api/categories/:id', CategoryCtrl.delete)//delete expense
+app.delete('/api/categories/:id', CategoryCtrl.delete)//delete category
+
+// Create, Read, Delete months
+app.post('/api/monthlist', MonthCtrl.create)//create month
+app.get('/api/monthlist', MonthCtrl.read)//read months
+app.delete('/api/monthlist/:id', MonthCtrl.delete)//delete month

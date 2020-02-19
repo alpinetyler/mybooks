@@ -13,3 +13,9 @@ VALUES(
     'groceries'
 );
 
+INSERT INTO monthlist(monthname, monthnumber, years)
+VALUES(
+    'January',
+    1,
+    2020
+)

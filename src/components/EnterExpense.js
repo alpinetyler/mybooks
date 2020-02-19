@@ -23,6 +23,7 @@ export default class EnterExpense extends Component {
         this.state = {
             expenses: [],
             categories: [],
+            monthlist: [],
             month: '',
             year: ''
         }
@@ -47,6 +48,12 @@ export default class EnterExpense extends Component {
                 expenses: res.data
             })
         }).catch(err => console.log('error getting expenses:', err))
+
+        axios.get('/api/monthlist').then((res) => {
+            this.setState({
+                monthlist: res.data
+            })
+        }).catch(err => console.log('error getting month list:', err))
 
     }
 
@@ -148,47 +155,23 @@ export default class EnterExpense extends Component {
 
     render() {
         let beginningBalance = 8000
+        //console.log(1111, this.state.monthlist)
         return (
             <div className="wrapper">
                 
                 <h1 id="listExpense"><p>Budget</p>
-                    
-                    <button class="btn" onClick={e => this.setMonth("7", "2019")} active>July 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("8", "2019")}>August 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("9", "2019")}>September 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("10", "2019")}>October 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("11", "2019")}>November 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("12", "2019")}>December 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("1", "2020")}>January 2019</button>
-                    <button class="btn" onClick={e => this.setMonth("2", "2020")}>February 2019</button>
 
-                    {/* <select
-                                name="month" onChange={this.handleChange}>
-                                Selected<option>Choose month</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                                
-                            </select> 
-                            <select
-                                name="year" onChange={this.handleChange}>
-                                Selected<option>Choose Year</option>
-                                <option value="2019">2019</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                
-                            </select> */}
+                {this.state.monthlist.map((monthlist, index) => {
+                    return (
+                        <button className="btn" key={index} 
+                        onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years)}>
+                            {`${monthlist.monthname} ${monthlist.years}`}</button>
+                        
+                    )
+                })}
+                    
+
+                    
                             </h1>
                             
                     <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
