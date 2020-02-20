@@ -50,7 +50,7 @@
        handleClick = () => {
            let updatedExpense = { ...this.props.expense, ...this.state }
            this.props.updateExpense(updatedExpense)
-           this.props.toggleEdit() // takes display bakc to original display
+           this.props.toggleEdit() // takes display back to original display
        }
 
        render() {
@@ -60,7 +60,7 @@
               <input
                   type="text"
                   name="date"
-                  className="addExpense"
+                  id="listExpense"
                   placeholder="Date"
                   style={styles.date}
                   onChange={this.handleChange}
@@ -72,7 +72,7 @@
                   type="text"
                   name="name"
                   placeholder="Name"
-                  className="addExpense"
+                  id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.name} />
               </td>
@@ -82,7 +82,7 @@
                   name="amount"
                   style={styles.rightJustify}
                   placeholder="Amount"
-                  className="addExpense"
+                  id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.amount} />
                   </td>
@@ -91,7 +91,7 @@
                   type="checkbox"
                   style={styles.checkbox}
                   name="ischecked"
-                  className="addExpense"
+                  id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.ischecked} />
                   </td>
@@ -101,12 +101,12 @@
                   name="notes"
                   placeholder="Notes"
                   style={styles.notes}
-                  className="addExpense"
+                  id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.notes} />
                   </td>
               <td style={styles.colFour}>
-              <select style={styles.select}
+              <select id="listExpense"
                                 name="category" onChange={this.handleChange}>
                                 selected<option>{this.state.category}</option>
                                 {this.state.categories.map((category, index) => {
@@ -173,10 +173,5 @@
     },
     checkbox: {
         width: '10px'
-    },
-    select: {
-        fontFamily: 'Times New Roman',
-        fontSize: '20px',
-        fontWeight: 'bold'
     }
 }

@@ -6,7 +6,7 @@ import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
 
 var today = new Date();
-var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+//var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var year = today.getFullYear();
 var month = today.getMonth() + 1
 
@@ -124,13 +124,6 @@ export default class EnterExpense extends Component {
               swal("Your expense is safe!");
             }
           });
-    //    if (swal("Are you sure you want to delete this expense?")){
-        
-        // if user clicks "ok" dexpense is deleted
-            // axios.delete(`/api/expenses/${id}`)
-            // .then(res => this.setState({ expenses: res.data }))
-            // .catch(err => console.log(err))
-       
     }
     
     handleClear = () => {

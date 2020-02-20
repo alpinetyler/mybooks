@@ -89,7 +89,7 @@ export default class AddExpense extends Component {
                     <td style={styles.colOne}>
                         <input
                             type="text"
-                            className="addExpense"
+                            id="listExpense"
                             style={styles.date}
                             name="date"
                             placeholder="Date"
@@ -99,7 +99,7 @@ export default class AddExpense extends Component {
                     <td style={styles.colTwo}>
                         <input
                             type="text"
-                            className="addExpense"
+                            id="listExpense"
                             name="name"
                             placeholder="Name"
                             onChange={this.handleChange}
@@ -108,7 +108,7 @@ export default class AddExpense extends Component {
                     <td style={styles.colThree}>
                         <input
                             type="text"
-                            className="addExpense"
+                            id="listExpense"
                             name="amount"
                             style={styles.notes}
                             placeholder="Amount"
@@ -129,7 +129,7 @@ export default class AddExpense extends Component {
                     <td style={styles.notes}>
                         <input
                             type="text"
-                            className="addExpense"
+                            id="listExpense"
                             style={styles.notes}
                             name="notes"
                             placeholder="Notes"
@@ -139,7 +139,7 @@ export default class AddExpense extends Component {
                     </td>
 
                     <td style={styles.colFour}>
-                    <select style={styles.select}
+                    <select id="listExpense"
                                 name="category" onChange={this.handleChange}>
                                     value={this.state.category}
                                 Selected<option>Choose Category</option>
@@ -158,7 +158,7 @@ export default class AddExpense extends Component {
                     <td style={styles.colSix}>
                         <input
                             type="text"
-                            className="addExpense"
+                            id="listExpense"
                             style={styles.notes}
                             name="fulldate"
                             placeholder="Full Date"
@@ -217,7 +217,7 @@ let styles = {
     },
     select: {
         fontFamily: 'Times New Roman',
-        fontSize: '20px',
+        fontSize: '16px',
         fontWeight: 'bold'
     },
     saveButton: {
