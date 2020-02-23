@@ -20,3 +20,10 @@ CREATE TABLE monthList(
     monthNumber INT,
     years INT
 );
+
+CREATE TABLE fixedexpenses(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    amount DECIMAL,
+    category VARCHAR
+);

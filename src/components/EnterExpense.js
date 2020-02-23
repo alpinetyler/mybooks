@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert';
+import {Link} from 'react-router-dom';
 
 import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
@@ -148,12 +149,13 @@ export default class EnterExpense extends Component {
 
     render() {
         let beginningBalance = 8000
+        
         //console.log(1111, this.state.monthlist)
         return (
             <div className="wrapper">
                 
                 <h1 id="listExpense"><p>Budget</p>
-
+                <p><Link to={'/ListFixedExpenses'}>List Fixed Expenses</Link></p>
                 {this.state.monthlist.map((monthlist, index) => {
                     return (
                         <button className="btn" key={index} 
@@ -161,13 +163,9 @@ export default class EnterExpense extends Component {
                             {`${monthlist.monthname} ${monthlist.years}`}</button>
                         
                     )
-                })}
-                    
-
-                    
-                            </h1>
-                            
-                    <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
+                })}</h1>
+                
+                 <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                 <table>
                     <tbody>
                 {this.state.expenses.map((expense, index) => {

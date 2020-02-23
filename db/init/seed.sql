@@ -19,3 +19,10 @@ VALUES(
     1,
     2020
 )
+
+INSERT INTO fixedexpenses(name, amount, category)
+VALUES(
+'Chase',
+'1604.00',
+'mortgage'
+);
