@@ -37,7 +37,7 @@ app.use(session({
     }
 }))
 
-app.listen(SERVER_PORT || 5050, () => {
+app.listen(SERVER_PORT, () => {
     console.log('we are now listening on port', SERVER_PORT)
 })
 
