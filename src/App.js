@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {HashRouter} from 'react-router-dom';
 import routes from './routes'
-import EnterExpense from './components/EnterExpense'
+//import EnterExpense from './components/EnterExpense'
 
 function App() {
   return (

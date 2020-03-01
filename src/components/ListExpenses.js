@@ -28,7 +28,6 @@ export default class ListExpense extends Component {
             edit: !this.state.edit
         })
 
-        
 
     render() {
         let {expense, updateExpense, beginningBalance} = this.props
@@ -63,11 +62,8 @@ export default class ListExpense extends Component {
                 <td onClick={this.toggleEdit} style={styles.colThree} id="listExpense" className={`${expense.category}`}>
                     {formatter.format(expense.amount)}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.checkbox} id="listExpense" className={`${expense.category}`}>
-                    <input
-                    type="checkbox"
-                    defaultChecked={expense.ischecked}
-                    />
+                <td onClick={this.toggleEdit} style={styles.checkbox} id="mycheckbox" className={`${expense.category}`}>
+                    {expense.ischecked}
                 </td>
                 <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${expense.category}`}>
                     {expense.notes}

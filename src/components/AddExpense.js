@@ -20,7 +20,7 @@ export default class AddExpense extends Component {
             name: '',
             date: date,
             amount: '',
-            ischecked: false,
+            ischecked: '',
             notes: '',
             category: '',
             fulldate: fulldate,
@@ -56,7 +56,7 @@ export default class AddExpense extends Component {
             name: '',
             date: date,
             amount: '',
-            ischecked: false,
+            ischecked: '',
             notes: '',
             category: '',
             class: '',
@@ -77,9 +77,6 @@ export default class AddExpense extends Component {
             ischecked: !this.state.ischecked // flip boolean value
         })
     }
-
-
-
 
     render() {
         return (
@@ -115,16 +112,15 @@ export default class AddExpense extends Component {
                             onChange={this.handleChange}
                             value={this.state.amount} />
                     </td>
-                    <td>
-                        <input
-                            type="checkbox"
+                    <td style={styles.checkbox}>
+                        {/* <input
+                            type="text"
                             name="ischecked"
                             style={styles.checkbox}
-                            checked={this.state.ischecked}
                             onChange={this.toggleChange}
-                            value={this.state.ischecked}
+                            // value={this.state.ischecked}
 
-                        />
+                        /> */}
                     </td>
                     <td style={styles.notes}>
                         <input

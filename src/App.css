@@ -111,7 +111,18 @@
 }
 
 td {
-  border-bottom: 1px black solid;
+  border-bottom: .25px black solid;
+}
+
+#mycheckbox {
+  /* border-left: 2px lightgray solid;
+  border-right: 2px lightgray solid;
+  border-top: 2px lightgray solid; */
+  /* font-size: 15px; */
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  color: green
+  
 }
 
 .btn {

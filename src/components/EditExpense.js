@@ -47,6 +47,8 @@
            })
        }
 
+       addCheck = e => this.setState({ischecked: '√'})
+
        handleClick = () => {
            let updatedExpense = { ...this.props.expense, ...this.state }
            this.props.updateExpense(updatedExpense)
@@ -88,9 +90,10 @@
                   </td>
                   <td style={styles.checkbox}>
               <input
-                  type="checkbox"
+                  type="text"
                   style={styles.checkbox}
                   name="ischecked"
+                  onClick={this.addCheck}
                   id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.ischecked} />
