@@ -21,9 +21,28 @@ CREATE TABLE monthList(
     years INT
 );
 
-CREATE TABLE fixedexpenses(
-    id SERIAL PRIMARY KEY,
-    name VARCHAR,
-    amount DECIMAL,
-    category VARCHAR
+CREATE TABLE homeexpenses(
+id SERIAL PRIMARY KEY,
+name VARCHAR,
+date DATE,
+amount DECIMAL,
+ischecked BOOLEAN,
+notes  VARCHAR,
+category VARCHAR,
+
 );
+
+
+INSERT INTO homeexpenses
+          (fulldate,
+          name,
+          amount,
+          category,
+          userid
+          )
+     SELECT '2020-03-01',
+           name,
+          amount,
+          category,
+          1
+      FROM fixedexpenses 
