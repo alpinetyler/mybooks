@@ -9,6 +9,7 @@ const session = require('express-session')
 const ExpenseCtrl = require('./controllers/expenses')
 const CategoryCtrl = require('./controllers/categories')
 const MonthCtrl = require('./controllers/months')
+const FixedExpenseCtrl = require('./controllers/fixedexpenses')
 
 const app = express()
 
@@ -56,3 +57,9 @@ app.delete('/api/categories/:id', CategoryCtrl.delete)//delete category
 app.post('/api/monthlist', MonthCtrl.create)//create month
 app.get('/api/monthlist', MonthCtrl.read)//read months
 app.delete('/api/monthlist/:id', MonthCtrl.delete)//delete month
+
+// Full CRUD for managing fixed expenses
+app.post('/api/fixedexpenses', FixedExpenseCtrl.create)//create expense
+app.get('/api/fixedexpenses', FixedExpenseCtrl.read)//read expense
+app.put('/api/fixedexpenses/:id', FixedExpenseCtrl.update)//update expense
+app.delete('/api/fixedexpenses/:id', FixedExpenseCtrl.delete)//delete expense

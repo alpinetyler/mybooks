@@ -40,9 +40,9 @@ INSERT INTO homeexpenses
           category,
           userid
           )
-     SELECT '2020-03-01',
+     SELECT ${fulldate},
            name,
           amount,
           category,
-          1
+          ${userid}
       FROM fixedexpenses 
