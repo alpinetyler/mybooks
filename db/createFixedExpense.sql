@@ -1,4 +1,4 @@
-INSERT INTO fiexedexpenses(name, amount, notes, category, userid)
+INSERT INTO fixedexpenses(name, amount, notes, category, userid)
 VALUES(
 ${name},
 ${amount},
@@ -7,7 +7,7 @@ ${category},
 ${userid}
 );
 
-SELECT DISTINCT name, amount, notes, category, userid
+SELECT name, amount, notes, category, userid
 FROM fixedexpenses
 WHERE userid = 1
 ORDER BY id ASC;

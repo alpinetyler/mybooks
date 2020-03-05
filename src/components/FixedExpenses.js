@@ -168,8 +168,8 @@ export default class FixedExpenses extends Component {
                         <ListFixedExpenses
                             key={fixedexpense.id}
                             fixedexpense={fixedexpense}
-                            updatefixedExpense={this.updatefixedExpense}
-                            deletefixedExpense={() => this.deletefixedExpense(fixedexpense.id)}
+                            updateFixedExpense={this.updateFixedExpense}
+                            deleteFixedExpense={() => this.deleteFixedExpense(fixedexpense.id)}
                             />
 
                     )

@@ -12,7 +12,7 @@ const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2
 })
 
-export default class ListFixedExpense extends Component {
+export default class ListFixedExpenses extends Component {
 
     constructor(props) {
         super(props)
