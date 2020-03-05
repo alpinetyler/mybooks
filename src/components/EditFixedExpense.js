@@ -13,20 +13,15 @@ export default class EditExpense extends Component {
     constructor(props) {
         super(props)
 
-        let { id, name, date, amount, ischecked, notes, category, total, fulldate} = props.expense
+        let { id, name, amount, notes, category} = props.fixedexpense
 
         this.state = {
             name,
-            date,
             amount,
-            ischecked,
             notes,
             category,
-            total,
             id,
-            fulldate,
-
-            expenses: [],
+            fixedexpenses: [],
             categories: []
         }
     }
@@ -36,7 +31,7 @@ export default class EditExpense extends Component {
          this.setState({
              categories: res.data
          })
-     }).catch(err => console.log('error getting expenses:', err))
+     }).catch(err => console.log('error getting categories:', err))
  }
 
     handleChange = e => {
@@ -47,11 +42,10 @@ export default class EditExpense extends Component {
         })
     }
 
-    addCheck = e => this.setState({ischecked: '√'})
 
     handleClick = () => {
-        let updatedExpense = { ...this.props.expense, ...this.state }
-        this.props.updateExpense(updatedExpense)
+        let updatedFixedExpense = { ...this.props.fixedexpense, ...this.state }
+        this.props.updateFixedExpense(updatedFixedExpense)
         this.props.toggleEdit() // takes display back to original display
     }
 
@@ -59,7 +53,7 @@ export default class EditExpense extends Component {
         return(
          <tr>
          <td style={styles.colOne}>
-           <input
+           {/* <input
                type="text"
                name="date"
                id="listExpense"
@@ -67,7 +61,7 @@ export default class EditExpense extends Component {
                style={styles.date}
                onChange={this.handleChange}
              //   defaultValue={`${this.state.month}/${this.state.day}`}/>
-               value={this.state.date}/>
+               value={this.state.date}/> */}
            </td>
            <td style={styles.colTwo}>
            <input
@@ -89,14 +83,14 @@ export default class EditExpense extends Component {
                value={this.state.amount} />
                </td>
                <td style={styles.checkbox}>
-           <input
+           {/* <input
                type="text"
                style={styles.checkbox}
                name="ischecked"
                onClick={this.addCheck}
                id="listExpense"
                onChange={this.handleChange}
-               value={this.state.ischecked} />
+               value={this.state.ischecked} /> */}
                </td>
                <td style={styles.notes}>
            <input

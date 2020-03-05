@@ -22,7 +22,7 @@ export default class ListFixedExpense extends Component {
         }
     }
 
-    //function to toggle between dipslay expenses and edit expense
+    //function to toggle between display fixedexpenses and edit fixedexpense
     toggleEdit = () => 
         this.setState({
             edit: !this.state.edit

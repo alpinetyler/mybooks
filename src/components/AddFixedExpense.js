@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-var today = new Date();
-var date = (today.getMonth() + 1) + '/' + today.getDate();
+// var today = new Date();
+// var date = (today.getMonth() + 1) + '/' + today.getDate();
 
-var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+// var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 // //display number in us currency format
 // const formatter = new Intl.NumberFormat('en-US', {
@@ -13,20 +13,17 @@ var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 //     minimumFractionDigits: 2
 // })
 
-export default class AddExpense extends Component {
+export default class AddFixedExpense extends Component {
     constructor(props) {
         super(props)
         this.state = {
             name: '',
-            date: date,
             amount: '',
-            ischecked: '',
             notes: '',
             category: '',
-            fulldate: fulldate,
             userid: 1,
 
-            expenses: [],
+            fixedexpenses: [],
             categories: [],
 
             add: false
@@ -42,7 +39,6 @@ export default class AddExpense extends Component {
     }
 
     handleChange = e => {
-        // console.log(1111, this.state.ischecked)
         let { value, name } = e.target
         this.setState({
             [name]: value
@@ -50,17 +46,13 @@ export default class AddExpense extends Component {
     }
 
     handleClick = () => {
-        let newExpense = this.state
-        this.props.createExpense(newExpense)
+        let newFixedExpense = this.state
+        this.props.createFixedExpense(newFixedExpense)
         this.setState({
             name: '',
-            date: date,
             amount: '',
-            ischecked: '',
             notes: '',
             category: '',
-            class: '',
-            fulldate: fulldate,
             userid: 1,
 
             add: false
@@ -72,11 +64,11 @@ export default class AddExpense extends Component {
             add: !this.state.add
         })
 
-    toggleChange = () => {
-        this.setState({
-            ischecked: !this.state.ischecked // flip boolean value
-        })
-    }
+    // toggleChange = () => {
+    //     this.setState({
+    //         ischecked: !this.state.ischecked // flip boolean value
+    //     })
+    // }
 
     render() {
         return (
@@ -84,14 +76,14 @@ export default class AddExpense extends Component {
 
                 <tr>
                     <td style={styles.colOne}>
-                        <input
+                        {/* <input
                             type="text"
                             id="listExpense"
                             style={styles.date}
                             name="date"
                             placeholder="Date"
                             onChange={this.handleChange}
-                            value={this.state.date} />
+                            value={this.state.date} /> */}
                     </td>
                     <td style={styles.colTwo}>
                         <input
@@ -152,7 +144,7 @@ export default class AddExpense extends Component {
                         <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>
                     </td>
                     <td style={styles.colSix}>
-                        <input
+                        {/* <input
                             type="text"
                             id="listExpense"
                             style={styles.notes}
@@ -160,7 +152,7 @@ export default class AddExpense extends Component {
                             placeholder="Full Date"
                             onChange={this.handleChange}
                             value={this.state.fulldate}
-                        />
+                        /> */}
                     </td>
                 </tr>
 

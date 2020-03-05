@@ -18,7 +18,7 @@ module.exports = {
         let { id } = req.params
         let db = req.app.get('db')
         let fixedexpenses = req.body
-        fixedexpenses.id = id // do I need this here?
+        fixedExpenses.id = id // do I need this here?
         db.updateFixedExpense(fixedExpenses).then(response => {
             res.send(response)
         }).catch(err => console.log(err))
