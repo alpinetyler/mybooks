@@ -83,14 +83,6 @@ export default class EditExpense extends Component {
                value={this.state.amount} />
                </td>
                <td style={styles.checkbox}>
-           {/* <input
-               type="text"
-               style={styles.checkbox}
-               name="ischecked"
-               onClick={this.addCheck}
-               id="listExpense"
-               onChange={this.handleChange}
-               value={this.state.ischecked} /> */}
                </td>
                <td style={styles.notes}>
            <input

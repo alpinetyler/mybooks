@@ -150,14 +150,7 @@ export default class FixedExpenses extends Component {
                 
                 <h1 id="listExpense"><p>Monthly Fixed Expenses</p>
                 <p><Link to={'/'}>Home</Link></p>
-                {/* {this.state.monthlist.map((monthlist, index) => {
-                    return (
-                        <button className="btn" key={index} 
-                        onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years)}>
-                            {`${monthlist.monthname} ${monthlist.years}`}</button>
-                        
-                    )
-                })} */}
+              
                 </h1>
                 
                  {/* <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span> */}
