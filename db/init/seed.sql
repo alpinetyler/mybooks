@@ -26,3 +26,6 @@ VALUES(
 '1604.00',
 'mortgage'
 );
+
+INSERT INTO homeexpenses(name, amount, notes, category, userid)
+SELECT name, amount, notes, category, userid FROM fixedexpenses
