@@ -110,8 +110,78 @@
   /* font-size: 30px; */
 }
 
-td {
-  border-bottom: .25px black solid;
+.myTableCell {
+  border: .25px black solid;
+}
+
+.myEditCell {
+  border: 2px green solid;
+}
+
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+}
+
+.myHeaderCell {
+  border: .25px black solid;
+  background-color: lightblue;
+}
+
+table {
+  table-layout: fixed;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dateColumn {
+  width: 50px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.nameColumn {
+  width: 200px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.amountColumn {
+  width: 100px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.√Column {
+  width: 20px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.notesColumn {
+  width: 150px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.categoryColumn {
+  width: 150px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.balanceColumn {
+  width: 100px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.deleteSaveColumn {
+  width: 100px;
+  text-align: center;
+  padding-left: 10px;
 }
 
 #mycheckbox {

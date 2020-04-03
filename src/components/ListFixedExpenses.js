@@ -56,25 +56,21 @@ export default class ListFixedExpenses extends Component {
                     {/* {expense.month}/{expense.day} */}
                     {/* {fixedexpense.date} */}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.colTwo} id="listExpense" className={`${fixedexpense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.colTwo} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
                     {fixedexpense.name}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.colThree} id="listExpense" className={`${fixedexpense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.colThree} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
                     {formatter.format(fixedexpense.amount)}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.checkbox} id="mycheckbox" className={`${fixedexpense.category}`}>
-                    {/* {expense.ischecked} */}
-                </td>
-                <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${fixedexpense.category}`}>
+                
+                <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
                     {fixedexpense.notes}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.colFour} id="listExpense" className={`${fixedexpense.category}`}>
+                <td onClick={this.toggleEdit} style={styles.colFour} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
                     {fixedexpense.category}
                 </td>
-                <td style={styles.colFive} id="listExpense">
-                    {/* {formatter.format(beginningBalance - expense.running_total)} */}
-                </td>
-                <td style={styles.colSix}>
+                
+                <td className="myTableRow" style={styles.colSix}>
 
                 {/* <span style={styles.edit} onClick={this.toggleEdit}><span className="hoveredit">&#9998;</span>  /   </span> */}
                 <span style={styles.edit} className="fa" onClick={this.props.deleteFixedExpense}><span className="hoverdelete"> &#xf014;</span></span>

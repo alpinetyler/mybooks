@@ -58,18 +58,18 @@
        render() {
            return(
             <tr>
-            <td style={styles.colOne}>
+            <td className="dateColumn myEditCell">
               <input
                   type="text"
                   name="date"
                   id="listExpense"
                   placeholder="Date"
-                  style={styles.date}
+                  className="dateColumn"
                   onChange={this.handleChange}
                 //   defaultValue={`${this.state.month}/${this.state.day}`}/>
                   value={this.state.date}/>
               </td>
-              <td style={styles.colTwo}>
+              <td className="nameColumn myEditCell">
               <input
                   type="text"
                   name="name"
@@ -78,37 +78,37 @@
                   onChange={this.handleChange}
                   value={this.state.name} />
               </td>
-              <td style={styles.colThree}>
+              <td className="amountColumn myEditCell">
               <input
                   type="text"
                   name="amount"
-                  style={styles.rightJustify}
                   placeholder="Amount"
                   id="listExpense"
+                  className="amountColumn"
                   onChange={this.handleChange}
                   value={this.state.amount} />
                   </td>
-                  <td style={styles.checkbox}>
+              <td className="√Column myEditCell">
               <input
                   type="text"
-                  style={styles.checkbox}
+                  className="√Column"
                   name="ischecked"
                   onClick={this.addCheck}
                   id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.ischecked} />
                   </td>
-                  <td style={styles.notes}>
+              <td className="notesColumn myEditCell">
               <input
                   type="text"
                   name="notes"
                   placeholder="Notes"
-                  style={styles.notes}
+                  className="notesColumn"
                   id="listExpense"
                   onChange={this.handleChange}
                   value={this.state.notes} />
                   </td>
-              <td style={styles.colFour}>
+              <td className="categoryColumn myEditCell">
               <select id="listExpense"
                                 name="category" onChange={this.handleChange}>
                                 selected<option>{this.state.category}</option>
@@ -121,11 +121,11 @@
                                 })}
                             </select>
                   </td>
-              <td style={styles.colFive}>
+              <td className="balanceColumn myEditCell">
                   </td>
-              <td style={styles.colSix}>
+              <td className="deleteSaveColumn fa myEditCell">
 
-              <span style={styles.icon} className="fa" onClick={this.handleClick}>&#xf0c7;</span>
+              <span style={styles.icon} onClick={this.handleClick}>&#xf0c7;</span>
               </td>
               </tr>
            )
@@ -175,6 +175,6 @@
         width: '100px'
     },
     checkbox: {
-        width: '10px'
+        width: '20px'
     }
 }

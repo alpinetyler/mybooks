@@ -164,10 +164,22 @@ export default class EnterExpense extends Component {
                         
                     )
                 })}</h1>
-                
                  <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
-                <table>
-                    <tbody>
+                 <table>
+                 <tbody>
+                 <tr>
+                                <td className="dateColumn myHeaderCell"><h3>Date</h3></td>
+                                <td className="nameColumn myHeaderCell"><h3>Name</h3></td>
+                                <td className="amountColumn myHeaderCell"><h3>Amount</h3></td>
+                                <td className="√Column myHeaderCell"><h3>√</h3></td>
+                                <td className="notesColumn myHeaderCell"><h3>Notes</h3></td>
+                                <td className="categoryColumn myHeaderCell"><h3>Category</h3></td>
+                                <td className="balanceColum myHeaderCell"><h3>Balance</h3></td>
+                                <td className="deleteSaveColumn myHeaderCell"><h3>Del/Save</h3></td>
+                </tr>
+               
+                
+                    
                 {this.state.expenses.map((expense, index) => {
                     return (
                         <ListExpenses
@@ -186,6 +198,54 @@ export default class EnterExpense extends Component {
 
             </div>
         )
+    }
+}
+let styles = {
+  
+    dateColumn: {
+        width: 75,
+        textAlign: "left",
+        paddingLeft: "10px"
+    },
+    nameColumn: {
+        width: 100,
+        textAlign: "left",
+        paddingLeft: "10px"
+        
+    },
+    amountColumn: {
+        width: 100,
+        textAlign: "right",
+        paddingLeft: "10px"
+    },
+    notesColumn: {
+        width: 100,
+        textAlign: "left",
+        paddingLeft: "10px"
+    },
+    categoryColumn: {
+        width: 100,
+        textAlign: "left",
+        paddingLeft: "10px"
+    },
+    balanceColumn: {
+        width: 100
+    },
+    deleteColunn: {
+        width: 100,
+        textAlign: "left",
+        paddingLeft: "10px"
+    },
+
+    edit: {
+        fontSize: 25,
+        cursor: 'pointer'
+    },
+    checkbox: {
+        width: 20
+    },
+    notes: {
+        width: '100px'
     }
 }
 
