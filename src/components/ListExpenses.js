@@ -18,7 +18,7 @@ export default class ListExpense extends Component {
         super(props)
 
         this.state = {
-            edit: false
+            edit: false,
         }
     }
 
@@ -37,7 +37,6 @@ export default class ListExpense extends Component {
         
         return (
             <>
-
                 {
                     this.state.edit ?
                         <>

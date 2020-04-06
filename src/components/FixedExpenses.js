@@ -156,6 +156,13 @@ export default class FixedExpenses extends Component {
                  {/* <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span> */}
                 <table>
                     <tbody>
+                    <tr>  
+                                <td className="nameColumn myHeaderCell"><h3>Name</h3></td>
+                                <td className="amountColumn myHeaderCell"><h3>Amount</h3></td>
+                                <td className="notesColumn myHeaderCell"><h3>Notes</h3></td>
+                                <td className="categoryColumn myHeaderCell"><h3>Category</h3></td>
+                                <td className="deleteSaveColumn myHeaderCell"><h3>Del/Save</h3></td>
+                </tr>
                 {this.state.fixedexpenses.map((fixedexpense, index) => {
                     return (
                         <ListFixedExpenses

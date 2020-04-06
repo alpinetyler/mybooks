@@ -1,4 +1,5 @@
-SELECT category, 
-sum(amount)
+SELECT category, SUM(amount)
 FROM homeexpenses
-GROUP BY category;
+WHERE extract(month FROM fulldate) = 4 AND
+extract(year from fulldate) = 2020
+group by category

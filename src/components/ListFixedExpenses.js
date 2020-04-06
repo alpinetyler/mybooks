@@ -52,27 +52,21 @@ export default class ListFixedExpenses extends Component {
                         <>
                <tr>
 
-                <td onClick={this.toggleEdit} style={styles.colOne} id="listExpense">
-                    {/* {expense.month}/{expense.day} */}
-                    {/* {fixedexpense.date} */}
-                </td>
-                <td onClick={this.toggleEdit} style={styles.colTwo} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
+                <td onClick={this.toggleEdit} id="listExpense" className={`${fixedexpense.category} myTableCell nameColumn`}>
                     {fixedexpense.name}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.colThree} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
+                <td onClick={this.toggleEdit}  id="listExpense" className={`${fixedexpense.category} myTableCell amountColumn`}>
                     {formatter.format(fixedexpense.amount)}
                 </td>
                 
-                <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
+                <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${fixedexpense.category} myTableCell`}>
                     {fixedexpense.notes}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.colFour} id="listExpense" className={`${fixedexpense.category} myTableRow`}>
+                <td onClick={this.toggleEdit} style={styles.colFour} id="listExpense" className={`${fixedexpense.category} myTableCell categoryColumn`}>
                     {fixedexpense.category}
                 </td>
                 
-                <td className="myTableRow" style={styles.colSix}>
-
-                {/* <span style={styles.edit} onClick={this.toggleEdit}><span className="hoveredit">&#9998;</span>  /   </span> */}
+                <td className="myTableCell deleteEditColumn">
                 <span style={styles.edit} className="fa" onClick={this.props.deleteFixedExpense}><span className="hoverdelete"> &#xf014;</span></span>
                 </td>
                </tr>

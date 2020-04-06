@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 
 import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
+import ShowMonthTotals from './ShowMonthTotals'
 
 var today = new Date();
 //var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -26,7 +27,8 @@ export default class EnterExpense extends Component {
             categories: [],
             monthlist: [],
             month: '',
-            year: ''
+            year: '',
+            display: false
         }
     }
 
@@ -34,6 +36,11 @@ export default class EnterExpense extends Component {
     toggleEdit = () =>
         this.setState({
             edit: !this.state.edit
+        })
+
+    toggleDisplay = () =>
+    this.setState({
+        display: !this.state.display
         })
 
     componentDidMount() {
@@ -165,6 +172,22 @@ export default class EnterExpense extends Component {
                     )
                 })}</h1>
                  <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
+                 <div>
+                    <h1></h1>
+                 </div>
+                 {
+                    this.state.display ?
+                        <div>
+                            <ShowMonthTotals
+                              toggleDisplay={this.toggleDisplay}/>
+                        </div>
+                        :
+                        <div>
+                        <button className='btn' onClick={this.toggleDisplay}>Show Totals</button>
+
+                        </div>
+
+                }
                  <table>
                  <tbody>
                  <tr>

@@ -1,14 +1,6 @@
    import React, {Component} from 'react';
    import axios from 'axios';
 
-//    //display number in us currency format
-// const formatter = new Intl.NumberFormat('en-US', {
-//     style: 'currency',
-//     currency: 'USD',
-//     minimumFractionDigits: 2
-//     })
-
-
    export default class EditExpense extends Component {
        constructor(props) {
            super(props)

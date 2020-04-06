@@ -10,6 +10,7 @@ const ExpenseCtrl = require('./controllers/expenses')
 const CategoryCtrl = require('./controllers/categories')
 const MonthCtrl = require('./controllers/months')
 const FixedExpenseCtrl = require('./controllers/fixedexpenses')
+const totalsCtrl = require('./controllers/totals')
 
 const app = express()
 
@@ -63,3 +64,6 @@ app.post('/api/fixedexpenses', FixedExpenseCtrl.create)//create expense
 app.get('/api/fixedexpenses', FixedExpenseCtrl.read)//read expense
 app.put('/api/fixedexpenses/:id', FixedExpenseCtrl.update)//update expense
 app.delete('/api/fixedexpenses/:id', FixedExpenseCtrl.delete)//delete expense
+
+// Endpoints for getting current totals for each category the month
+app.get('/api/totals', totalsCtrl.read)//read totals

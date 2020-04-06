@@ -47,6 +47,10 @@
   color: darkcyan;
 }
 
+.narrowTable {
+  width: 250px;
+}
+
 .utilities {
   color: forestgreen;
 }
@@ -114,8 +118,29 @@
   border: .25px black solid;
 }
 
+.totalsCategory {
+  border: .25px black solid;
+  width: 150px;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.totalsSum {
+  border: .25px black solid;
+  width: 100px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.totalsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .myEditCell {
-  border: 2px green solid;
+  border: 5px green solid;
 }
 
 input[type="text"]

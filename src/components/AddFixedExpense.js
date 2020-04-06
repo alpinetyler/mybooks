@@ -75,17 +75,7 @@ export default class AddFixedExpense extends Component {
             <>
 
                 <tr>
-                    <td style={styles.colOne}>
-                        {/* <input
-                            type="text"
-                            id="listExpense"
-                            style={styles.date}
-                            name="date"
-                            placeholder="Date"
-                            onChange={this.handleChange}
-                            value={this.state.date} /> */}
-                    </td>
-                    <td style={styles.colTwo}>
+                    <td className="nameColumn">
                         <input
                             type="text"
                             id="listExpense"
@@ -103,16 +93,6 @@ export default class AddFixedExpense extends Component {
                             placeholder="Amount"
                             onChange={this.handleChange}
                             value={this.state.amount} />
-                    </td>
-                    <td style={styles.checkbox}>
-                        {/* <input
-                            type="text"
-                            name="ischecked"
-                            style={styles.checkbox}
-                            onChange={this.toggleChange}
-                            // value={this.state.ischecked}
-
-                        /> */}
                     </td>
                     <td style={styles.notes}>
                         <input
@@ -143,19 +123,7 @@ export default class AddFixedExpense extends Component {
                     <td style={styles.colFive}>
                         <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>
                     </td>
-                    <td style={styles.colSix}>
-                        {/* <input
-                            type="text"
-                            id="listExpense"
-                            style={styles.notes}
-                            name="fulldate"
-                            placeholder="Full Date"
-                            onChange={this.handleChange}
-                            value={this.state.fulldate}
-                        /> */}
-                    </td>
                 </tr>
-
             </>
         )
 

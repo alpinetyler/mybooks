@@ -52,50 +52,39 @@ export default class EditExpense extends Component {
     render() {
         return(
          <tr>
-         <td style={styles.colOne}>
-           {/* <input
-               type="text"
-               name="date"
-               id="listExpense"
-               placeholder="Date"
-               style={styles.date}
-               onChange={this.handleChange}
-             //   defaultValue={`${this.state.month}/${this.state.day}`}/>
-               value={this.state.date}/> */}
-           </td>
-           <td style={styles.colTwo}>
+           <td className="nameColumn myTableCell">
            <input
                type="text"
                name="name"
                placeholder="Name"
                id="listExpense"
+               className="nameColumn"
                onChange={this.handleChange}
                value={this.state.name} />
            </td>
-           <td style={styles.colThree}>
+           <td className="amountColumn myTableCell">
            <input
                type="text"
                name="amount"
-               style={styles.rightJustify}
+               className="amountColumn"
                placeholder="Amount"
                id="listExpense"
                onChange={this.handleChange}
                value={this.state.amount} />
                </td>
-               <td style={styles.checkbox}>
-               </td>
-               <td style={styles.notes}>
+            <td className="notesColumn myTableCell">
            <input
                type="text"
                name="notes"
                placeholder="Notes"
-               style={styles.notes}
+               className="notesColumn"
                id="listExpense"
                onChange={this.handleChange}
                value={this.state.notes} />
-               </td>
-           <td style={styles.colFour}>
+            </td>
+           <td className="categoryColumn myTableCell">
            <select id="listExpense"
+                    className="categoryColumn"
                              name="category" onChange={this.handleChange}>
                              selected<option>{this.state.category}</option>
                              {this.state.categories.map((category, index) => {
@@ -107,10 +96,7 @@ export default class EditExpense extends Component {
                              })}
                          </select>
                </td>
-           <td style={styles.colFive}>
-               </td>
-           <td style={styles.colSix}>
-
+           <td className="deleteSaveColumn">
            <span style={styles.icon} className="fa" onClick={this.handleClick}>&#xf0c7;</span>
            </td>
            </tr>
