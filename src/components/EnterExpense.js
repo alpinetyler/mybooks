@@ -161,8 +161,8 @@ export default class EnterExpense extends Component {
         return (
             <div className="wrapper">
                 
-                <h1 id="listExpense"><p>Budget</p>
-                <p><Link to={'/FixedExpenses'}>Fixed Expenses</Link></p>
+                <h3><p>{year} Budget</p>
+                <p><Link to={'/FixedExpenses'} id="listExpense">Fixed Expenses</Link></p>
                 {this.state.monthlist.map((monthlist, index) => {
                     return (
                         <button className="btn" key={index} 
@@ -170,12 +170,9 @@ export default class EnterExpense extends Component {
                             {`${monthlist.monthname} ${monthlist.years}`}</button>
                         
                     )
-                })}</h1>
-                 <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
-                 <div>
-                    <h1></h1>
-                 </div>
-                 {
+                })}</h3>
+
+{
                     this.state.display ?
                         <div>
                             <ShowMonthTotals
@@ -188,6 +185,11 @@ export default class EnterExpense extends Component {
                         </div>
 
                 }
+                 <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
+                 <div>
+                    <h1></h1>
+                 </div>
+                 
                  <table>
                  <tbody>
                  <tr>

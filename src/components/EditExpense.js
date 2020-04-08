@@ -65,6 +65,7 @@
               <input
                   type="text"
                   name="name"
+                  className="nameColumn"
                   placeholder="Name"
                   id="listExpense"
                   onChange={this.handleChange}
@@ -83,7 +84,7 @@
               <td className="√Column myEditCell">
               <input
                   type="text"
-                  className="√Column"
+                  width="5px"
                   name="ischecked"
                   onClick={this.addCheck}
                   id="listExpense"

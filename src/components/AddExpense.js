@@ -83,7 +83,7 @@ export default class AddExpense extends Component {
             <>
 
                 <tr>
-                    <td style={styles.colOne}>
+                    <td className="dateColumn">
                         <input
                             type="text"
                             id="listExpense"
@@ -93,7 +93,7 @@ export default class AddExpense extends Component {
                             onChange={this.handleChange}
                             value={this.state.date} />
                     </td>
-                    <td style={styles.colTwo}>
+                    <td className="nameColumn">
                         <input
                             type="text"
                             id="listExpense"
@@ -102,7 +102,7 @@ export default class AddExpense extends Component {
                             onChange={this.handleChange}
                             value={this.state.name} />
                     </td>
-                    <td style={styles.colThree}>
+                    <td className="amountColumn">
                         <input
                             type="text"
                             id="listExpense"
@@ -112,7 +112,7 @@ export default class AddExpense extends Component {
                             onChange={this.handleChange}
                             value={this.state.amount} />
                     </td>
-                    <td style={styles.checkbox}>
+                    <td className="√Column">
                         {/* <input
                             type="text"
                             name="ischecked"
@@ -122,7 +122,7 @@ export default class AddExpense extends Component {
 
                         /> */}
                     </td>
-                    <td style={styles.notes}>
+                    <td className="notesColumn">
                         <input
                             type="text"
                             id="listExpense"
@@ -134,7 +134,7 @@ export default class AddExpense extends Component {
                         />
                     </td>
 
-                    <td style={styles.colFour}>
+                    <td className="categoryColumn">
                     <select id="listExpense"
                                 name="category" onChange={this.handleChange}>
                                     value={this.state.category}
@@ -148,10 +148,10 @@ export default class AddExpense extends Component {
                                 })}
                             </select>
                     </td>
-                    <td style={styles.colFive}>
+                    <td className="balanceColumn">
                         <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>
                     </td>
-                    <td style={styles.colSix}>
+                    <td className="deleteSaveColumn">
                         <input
                             type="text"
                             id="listExpense"
