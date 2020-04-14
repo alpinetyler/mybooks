@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
 import ShowMonthTotals from './ShowMonthTotals'
+import AddMonth from './AddMonth';
 
 var today = new Date();
 //var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -28,7 +29,8 @@ export default class EnterExpense extends Component {
             monthlist: [],
             month: '',
             year: '',
-            display: false
+            display: false,
+            create: false
         }
     }
 
@@ -39,9 +41,15 @@ export default class EnterExpense extends Component {
         })
 
     toggleDisplay = () =>
-    this.setState({
-        display: !this.state.display
+        this.setState({
+            display: !this.state.display
         })
+
+    toggleCreate = () => {
+        this.setState({
+            create: !this.state.create
+        })
+        }
 
     componentDidMount() {
        
@@ -104,6 +112,16 @@ export default class EnterExpense extends Component {
             .then(res => {
                 this.setState({
                     expenses: res.data
+                })
+            }).catch(err => console.log(err))
+    }
+
+    createMonth = newMonth => {
+        axios.post('/api/monthlist', newMonth)
+            .then(res => {
+                this.setState({
+                    monthlist: res.data,
+                    create: false
                 })
             }).catch(err => console.log(err))
     }
@@ -171,8 +189,22 @@ export default class EnterExpense extends Component {
                         
                     )
                 })}</h3>
+                
+                {
+                    this.state.create ?
+                     <div>
+                         <AddMonth
+                            createMonth={this.createMonth}
+                            toggleCreate={this.toggleCreate}/>
+                    </div>
+                    :
+                    <div>
+                    <button className='btn' onClick={this.toggleCreate}>Add Month</button>
+                    </div>
+                }
 
-{
+
+                {
                     this.state.display ?
                         <div>
                             <ShowMonthTotals

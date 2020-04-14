@@ -29,3 +29,9 @@ VALUES(
 
 INSERT INTO homeexpenses(name, amount, notes, category, userid)
 SELECT name, amount, notes, category, userid FROM fixedexpenses
+
+
+
+NSERT INTO homeexpenses(name, amount, notes, category, userid, fulldate)
+SELECT fixedexpenses.name, fixedexpenses.amount, fixedexpenses.notes, fixedexpenses.category, 1, '2020-06-1'
+FROM fixedexpenses

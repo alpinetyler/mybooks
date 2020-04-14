@@ -6,12 +6,6 @@ var date = (today.getMonth() + 1) + '/' + today.getDate();
 
 var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-// //display number in us currency format
-// const formatter = new Intl.NumberFormat('en-US', {
-//     style: 'currency',
-//     currency: 'USD',
-//     minimumFractionDigits: 2
-// })
 
 export default class AddExpense extends Component {
     constructor(props) {
@@ -87,7 +81,7 @@ export default class AddExpense extends Component {
                         <input
                             type="text"
                             id="listExpense"
-                            style={styles.date}
+                            className="dateColumn"
                             name="date"
                             placeholder="Date"
                             onChange={this.handleChange}
