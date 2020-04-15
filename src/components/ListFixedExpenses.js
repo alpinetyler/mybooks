@@ -52,17 +52,17 @@ export default class ListFixedExpenses extends Component {
                         <>
                <tr>
 
-                <td onClick={this.toggleEdit} id="listExpense" className={`${fixedexpense.category} myTableCell nameColumn`}>
+                <td onClick={this.toggleEdit} className={`${fixedexpense.category} listExpense myTableCell nameColumn`}>
                     {fixedexpense.name}
                 </td>
-                <td onClick={this.toggleEdit}  id="listExpense" className={`${fixedexpense.category} myTableCell amountColumn`}>
+                <td onClick={this.toggleEdit}  className={`${fixedexpense.category} listExpense myTableCell amountColumn`}>
                     {formatter.format(fixedexpense.amount)}
                 </td>
                 
-                <td onClick={this.toggleEdit} style={styles.notes} id="listExpense" className={`${fixedexpense.category} myTableCell`}>
+                <td onClick={this.toggleEdit} style={styles.notes} className={`${fixedexpense.category} listExpense myTableCell`}>
                     {fixedexpense.notes}
                 </td>
-                <td onClick={this.toggleEdit} style={styles.colFour} id="listExpense" className={`${fixedexpense.category} myTableCell categoryColumn`}>
+                <td onClick={this.toggleEdit} style={styles.colFour} className={`${fixedexpense.category} listExpense myTableCell categoryColumn`}>
                     {fixedexpense.category}
                 </td>
                 

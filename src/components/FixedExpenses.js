@@ -149,8 +149,8 @@ export default class FixedExpenses extends Component {
         return (
             <div className="wrapper">
                 
-                <h1 id="listExpense"><p>Monthly Fixed Expenses</p>
-                <p><Link to={'/'}>Home</Link></p>
+                <h1 className="listExpense"><p>Monthly Fixed Expenses</p>
+                <p><Link className="btn fixedexpenses" to={'/'}>Home</Link></p>
               
                 </h1>
                 

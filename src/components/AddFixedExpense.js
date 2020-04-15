@@ -75,29 +75,29 @@ export default class AddFixedExpense extends Component {
             <>
 
                 <tr>
-                    <td className="nameColumn">
+                    <td className="nameColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense myTableCell"
                             name="name"
                             placeholder="Name"
                             onChange={this.handleChange}
                             value={this.state.name} />
                     </td>
-                    <td style={styles.colThree}>
+                    <td className="amountColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense"
                             name="amount"
                             style={styles.notes}
                             placeholder="Amount"
                             onChange={this.handleChange}
                             value={this.state.amount} />
                     </td>
-                    <td style={styles.notes}>
+                    <td className="notesColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense"
                             style={styles.notes}
                             name="notes"
                             placeholder="Notes"
@@ -106,8 +106,8 @@ export default class AddFixedExpense extends Component {
                         />
                     </td>
 
-                    <td style={styles.colFour}>
-                    <select id="listExpense"
+                    <td className="categoryColumn myAddCell">
+                    <select className="listExpense"
                                 name="category" onChange={this.handleChange}>
                                     value={this.state.category}
                                 Selected<option>Choose Category</option>
@@ -120,7 +120,7 @@ export default class AddFixedExpense extends Component {
                                 })}
                             </select>
                     </td>
-                    <td style={styles.colFive}>
+                    <td className="deleteSaveColumn myAddCell">
                         <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>
                     </td>
                 </tr>

@@ -87,9 +87,9 @@
   color: darkcyan;
 } 
 
-#listExpense {
+.listExpense {
   font-size: 18px;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -118,6 +118,14 @@
   border: .25px black solid;
 }
 
+.myAddCell {
+  border: .25px lightgray solid;
+}
+
+.myEditCell {
+  border: 3px green solid;
+}
+
 .totalsCategory {
   border: .25px black solid;
   width: 150px;
@@ -137,10 +145,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.myEditCell {
-  border: 3px green solid;
 }
 
 input[type="text"]
@@ -310,3 +314,7 @@ button:not(.btn):focus {
   margin-right: auto;
 }
 
+.fixedexpenses {
+  text-decoration: none;
+  font-size: 12px;
+}

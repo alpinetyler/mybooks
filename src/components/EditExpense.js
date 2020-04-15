@@ -54,9 +54,9 @@
               <input
                   type="text"
                   name="date"
-                  id="listExpense"
+                  
                   placeholder="Date"
-                  className="dateColumn"
+                  className="dateColumn listExpense"
                   onChange={this.handleChange}
                 //   defaultValue={`${this.state.month}/${this.state.day}`}/>
                   value={this.state.date}/>
@@ -65,9 +65,9 @@
               <input
                   type="text"
                   name="name"
-                  className="nameColumn"
+                  className="nameColumn listExpense"
                   placeholder="Name"
-                  id="listExpense"
+                  
                   onChange={this.handleChange}
                   value={this.state.name} />
               </td>
@@ -76,8 +76,8 @@
                   type="text"
                   name="amount"
                   placeholder="Amount"
-                  id="listExpense"
-                  className="amountColumn"
+                  
+                  className="amountColumn listExpense"
                   onChange={this.handleChange}
                   value={this.state.amount} />
                   </td>
@@ -87,7 +87,7 @@
                   width="5px"
                   name="ischecked"
                   onClick={this.addCheck}
-                  id="listExpense"
+                  className="listExpense"
                   onChange={this.handleChange}
                   value={this.state.ischecked} />
                   </td>
@@ -96,13 +96,13 @@
                   type="text"
                   name="notes"
                   placeholder="Notes"
-                  className="notesColumn"
-                  id="listExpense"
+                  className="notesColumn listExpense"
+                  
                   onChange={this.handleChange}
                   value={this.state.notes} />
                   </td>
               <td className="categoryColumn myEditCell">
-              <select id="listExpense"
+              <select className="listExpense"
                                 name="category" onChange={this.handleChange}>
                                 selected<option>{this.state.category}</option>
                                 {this.state.categories.map((category, index) => {

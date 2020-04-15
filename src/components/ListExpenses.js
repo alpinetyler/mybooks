@@ -54,7 +54,7 @@ export default class ListExpense extends Component {
                 <td className="myTableCell dateColumn" onClick={this.toggleEdit} id="listExpense">
                     {expense.date}
                 </td>
-                <td onClick={this.toggleEdit} id="listExpense" className={`${expense.category} myTableCell nameColumn`}>
+                <td onClick={this.toggleEdit} className={`${expense.category} listExpense myTableCell nameColumn`}>
                     {expense.name}
                 </td>
                 <td onClick={this.toggleEdit} id="listExpense" className={`${expense.category} myTableCell amountColumn`}>

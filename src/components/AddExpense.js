@@ -77,59 +77,50 @@ export default class AddExpense extends Component {
             <>
 
                 <tr>
-                    <td className="dateColumn">
+                    <td className="dateColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
-                            className="dateColumn"
+                            className="dateColumn listExpense"
                             name="date"
                             placeholder="Date"
                             onChange={this.handleChange}
                             value={this.state.date} />
                     </td>
-                    <td className="nameColumn">
+                    <td className="nameColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense"
                             name="name"
-                            placeholder="Name"
+                            placeholder=" Enter Name"
                             onChange={this.handleChange}
                             value={this.state.name} />
                     </td>
-                    <td className="amountColumn">
+                    <td className="amountColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense"
                             name="amount"
                             style={styles.notes}
-                            placeholder="Amount"
+                            placeholder="Enter Amt"
                             onChange={this.handleChange}
                             value={this.state.amount} />
                     </td>
-                    <td className="√Column">
-                        {/* <input
-                            type="text"
-                            name="ischecked"
-                            style={styles.checkbox}
-                            onChange={this.toggleChange}
-                            // value={this.state.ischecked}
-
-                        /> */}
+                    <td className="√Column myAddCell">
                     </td>
-                    <td className="notesColumn">
+                    <td className="notesColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense"
                             style={styles.notes}
                             name="notes"
-                            placeholder="Notes"
+                            placeholder="Enter Note"
                             onChange={this.handleChange}
                             value={this.state.notes}
                         />
                     </td>
 
-                    <td className="categoryColumn">
-                    <select id="listExpense"
+                    <td className="categoryColumn myAddCell">
+                    <select className="listExpense"
                                 name="category" onChange={this.handleChange}>
                                     value={this.state.category}
                                 Selected<option>Choose Category</option>
@@ -142,13 +133,13 @@ export default class AddExpense extends Component {
                                 })}
                             </select>
                     </td>
-                    <td className="balanceColumn">
+                    <td className="balanceColumn myAddCell">
                         <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>
                     </td>
-                    <td className="deleteSaveColumn">
+                    <td className="deleteSaveColumn myAddCell">
                         <input
                             type="text"
-                            id="listExpense"
+                            className="listExpense"
                             style={styles.notes}
                             name="fulldate"
                             placeholder="Full Date"

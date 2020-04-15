@@ -52,39 +52,38 @@ export default class EditExpense extends Component {
     render() {
         return(
          <tr>
-           <td className="nameColumn myTableCell">
+           <td className="nameColumn myEditCell">
            <input
                type="text"
                name="name"
                placeholder="Name"
-               id="listExpense"
-               className="nameColumn"
+               
+               className="listExpense nameColumn"
                onChange={this.handleChange}
                value={this.state.name} />
            </td>
-           <td className="amountColumn myTableCell">
+           <td className="amountColumn myEditCell">
            <input
                type="text"
                name="amount"
-               className="amountColumn"
+               className="listExpense amountColumn"
                placeholder="Amount"
-               id="listExpense"
+               
                onChange={this.handleChange}
                value={this.state.amount} />
                </td>
-            <td className="notesColumn myTableCell">
+            <td className="notesColumn myEditCell">
            <input
                type="text"
                name="notes"
                placeholder="Notes"
-               className="notesColumn"
-               id="listExpense"
+               className="listExpense notesColumn"
+               
                onChange={this.handleChange}
                value={this.state.notes} />
             </td>
-           <td className="categoryColumn myTableCell">
-           <select id="listExpense"
-                    className="categoryColumn"
+           <td className="categoryColumn myEditCell">
+           <select className="listExpense categoryColumn"
                              name="category" onChange={this.handleChange}>
                              selected<option>{this.state.category}</option>
                              {this.state.categories.map((category, index) => {
@@ -96,7 +95,7 @@ export default class EditExpense extends Component {
                              })}
                          </select>
                </td>
-           <td className="deleteSaveColumn">
+           <td className="deleteSaveColumn myEditCell">
            <span style={styles.icon} className="fa" onClick={this.handleClick}>&#xf0c7;</span>
            </td>
            </tr>

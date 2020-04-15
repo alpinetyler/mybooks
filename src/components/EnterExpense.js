@@ -181,7 +181,7 @@ export default class EnterExpense extends Component {
             <div className="wrapper">
                 
                 <h3><p>{year} Budget</p>
-                <p><Link to={'/FixedExpenses'} id="listExpense">Fixed Expenses</Link></p>
+                <p><Link className="btn fixedexpenses" to={'/FixedExpenses'}>Fixed Expenses</Link></p>
                 {this.state.monthlist.map((monthlist, index) => {
                     return (
                         <button className="btn" key={index} 
