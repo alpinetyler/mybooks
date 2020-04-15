@@ -12,11 +12,11 @@ import AddFixedExpense from './AddFixedExpense'
 // var month = today.getMonth() + 1
 
 //display number in us currency format
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-})
+// const formatter = new Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency: 'USD',
+//     minimumFractionDigits: 2
+// })
 
 export default class FixedExpenses extends Component {
     constructor(props) {
@@ -109,6 +109,7 @@ export default class FixedExpenses extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
+                console.log(1111, id)
             axios.delete(`/api/fixedexpenses/${id}`)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
@@ -166,7 +167,7 @@ export default class FixedExpenses extends Component {
                 {this.state.fixedexpenses.map((fixedexpense, index) => {
                     return (
                         <ListFixedExpenses
-                            key={fixedexpense.id}
+                            key={index}
                             fixedexpense={fixedexpense}
                             updateFixedExpense={this.updateFixedExpense}
                             deleteFixedExpense={() => this.deleteFixedExpense(fixedexpense.id)}

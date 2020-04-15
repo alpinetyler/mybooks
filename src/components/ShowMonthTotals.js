@@ -38,6 +38,8 @@ export default class ShowMonthTotals extends Component{
         return(
             <div className="totalsWrapper">
                 <table className="narrowTable">
+                    <tbody>
+
                 <tr>
                     <td className="totalsCategory myHeaderCell">
                         Category
@@ -48,7 +50,7 @@ export default class ShowMonthTotals extends Component{
                 </tr>
             {this.state.totals.map((totals, index) => {
                 return(
-                    <tr>
+                    <tr key={index}>
                     <td className="totalsCategory">
                         {totals.category}
                     </td>
@@ -60,7 +62,7 @@ export default class ShowMonthTotals extends Component{
                 )
                 
             })}
-           
+            </tbody>
            </table>
             <button className='btn' onClick={this.props.toggleDisplay}>Hide Totals</button>
             </div>

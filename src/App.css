@@ -254,7 +254,7 @@ button:not(.btn):focus {
   border: #53a42e;
   border-style: solid;
   border-width: 1px;
-  width: 100px;
+  width: 150px;
   height: 30px;
   border-radius: 6px;
   background: linear-gradient(#FFFFFF, rgb(96, 199, 92));
@@ -281,7 +281,7 @@ button:not(.btn):focus {
   border: #2e6da4;
   border-style: solid;
   border-width: 1px;
-  width: 100px;
+  width: 150px;
   height: 30px;
   border-radius: 6px;
   background: linear-gradient(#FFFFFF, rgb(226, 45, 45));
@@ -303,7 +303,7 @@ button:not(.btn):focus {
 }
 
 .createnewmonthbox {
-  width: 300px;
+  width: 350px;
   border: 1px black solid;
   border-radius: 5%;
   margin-left: auto;

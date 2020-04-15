@@ -13,7 +13,7 @@ export default class AddMonth extends Component {
     handleChange = e => {
         let {value, name} = e.target
         //console.log(2222, name, value)
-        if(name == 'monthname'){
+        if(name === 'monthname'){
             const months = {
                 'January' : '01',
                 'February' : '02',
@@ -81,15 +81,24 @@ export default class AddMonth extends Component {
                 </select>
                 </p>
                 
-                <button className="createmonthbtn" onClick={this.handleClick}>Create {this.state.monthname && this.state.years ? 
-                this.state.monthname + ' ' + this.state.years 
-                : 
-                '...'}</button>
+
+                {   // only show add month button if user has selected a month and a year
+                    this.state.monthname && this.state.years ?
+
+                    // when user has selected month and year, display them on the add and cancel buttons
+                    <button className="createmonthbtn" onClick={this.handleClick}>Create {this.state.monthname && this.state.years ? 
+                    this.state.monthname + ' ' + this.state.years 
+                    : 
+                    ''}</button>
+
+                    :
+                    ''
+                }
                 
                 <button className="cancelmonthbtn" onClick={this.props.toggleCreate}>Cancel {this.state.monthname && this.state.years ? 
                 this.state.monthname + ' ' + this.state.years 
                 : 
-                '...'}</button>
+                ''}</button>
                 
                 
 

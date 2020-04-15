@@ -19,6 +19,7 @@ module.exports = {
         let { id } = req.params
         let db = req.app.get('db')
         let expenses = req.body
+        //console.log(8888, expenses)
         expenses.id = id
         db.updateExpense(expenses).then(response => {
             res.send(response)

@@ -140,6 +140,7 @@ export default class EnterExpense extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
+                //console.log(2222, id)
             axios.delete(`/api/expenses/${id}`)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
@@ -219,7 +220,7 @@ export default class EnterExpense extends Component {
                 }
                  <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
                  <div>
-                    <h1></h1>
+                    
                  </div>
                  
                  <table>
@@ -240,7 +241,7 @@ export default class EnterExpense extends Component {
                 {this.state.expenses.map((expense, index) => {
                     return (
                         <ListExpenses
-                            key={expense.id}
+                            key={index}
                             expense={expense}
                             updateExpense={this.updateExpense}
                             deleteExpense={() => this.deleteExpense(expense.id)}
@@ -257,52 +258,3 @@ export default class EnterExpense extends Component {
         )
     }
 }
-let styles = {
-  
-    dateColumn: {
-        width: 75,
-        textAlign: "left",
-        paddingLeft: "10px"
-    },
-    nameColumn: {
-        width: 100,
-        textAlign: "left",
-        paddingLeft: "10px"
-        
-    },
-    amountColumn: {
-        width: 100,
-        textAlign: "right",
-        paddingLeft: "10px"
-    },
-    notesColumn: {
-        width: 100,
-        textAlign: "left",
-        paddingLeft: "10px"
-    },
-    categoryColumn: {
-        width: 100,
-        textAlign: "left",
-        paddingLeft: "10px"
-    },
-    balanceColumn: {
-        width: 100
-    },
-    deleteColunn: {
-        width: 100,
-        textAlign: "left",
-        paddingLeft: "10px"
-    },
-
-    edit: {
-        fontSize: 25,
-        cursor: 'pointer'
-    },
-    checkbox: {
-        width: 20
-    },
-    notes: {
-        width: '100px'
-    }
-}
-
