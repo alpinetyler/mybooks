@@ -109,7 +109,7 @@ export default class FixedExpenses extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
-                console.log(1111, id)
+            console.log(1111, id)
             axios.delete(`/api/fixedexpenses/${id}`)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
@@ -154,7 +154,6 @@ export default class FixedExpenses extends Component {
               
                 </h1>
                 
-                 {/* <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span> */}
                 <table>
                     <tbody>
                     <tr>  

@@ -57,19 +57,19 @@ export default class ListExpense extends Component {
                 <td onClick={this.toggleEdit} className={`${expense.category} listExpense myTableCell nameColumn`}>
                     {expense.name}
                 </td>
-                <td onClick={this.toggleEdit} id="listExpense" className={`${expense.category} myTableCell amountColumn`}>
+                <td onClick={this.toggleEdit} className={`${expense.category} listExpense myTableCell amountColumn`}>
                     {formatter.format(expense.amount)}
                 </td>
-                <td onClick={this.toggleEdit} id="mycheckbox" className={`${expense.category} myTableCell √Column`}>
+                <td onClick={this.toggleEdit} id="mycheckbox" className={`${expense.category} listExpense myTableCell √Column`}>
                     {expense.ischecked}
                 </td>
-                <td onClick={this.toggleEdit} id="listExpense" className={`${expense.category} myTableCell notesColumn`}>
+                <td onClick={this.toggleEdit} className={`${expense.category} listExpense myTableCell notesColumn`}>
                     {expense.notes}
                 </td>
-                <td onClick={this.toggleEdit} id="listExpense" className={`${expense.category} myTableCell categoryColumn`}>
+                <td onClick={this.toggleEdit} className={`${expense.category} listExpense myTableCell categoryColumn`}>
                     {expense.category}
                 </td>
-                <td className="myTableCell balanceColumn" id="listExpense">
+                <td className="myTableCell balanceColumn listExpense">
                     {formatter.format(beginningBalance - expense.running_total)}
                 </td>
                 <td className="myTableCell deleteSaveColumn" style={styles.colSix}>
