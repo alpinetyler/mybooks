@@ -40,7 +40,7 @@ export default class AddMonth extends Component {
 
     handleClick = () => {
         let newMonth = this.state
-        console.log(333, newMonth)
+        //console.log(333, newMonth)
         this.props.createMonth(newMonth)
         this.setState({
             monthname: '',
