@@ -3,4 +3,3 @@ FROM homeexpenses
 WHERE extract(month FROM fulldate) = 4 AND
 extract(year from fulldate) = 2020
 group by category
-ORDER BY SUM DESC
