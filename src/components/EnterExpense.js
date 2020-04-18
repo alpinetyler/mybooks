@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 import ListExpenses from './ListExpenses'
 import AddExpense from './AddExpense'
 import ShowMonthTotals from './ShowMonthTotals'
 import AddMonth from './AddMonth';
+// import Header from './Header';
+// import FixedExpenses from './FixedExpenses'
 
 var today = new Date();
 //var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -30,7 +32,8 @@ export default class EnterExpense extends Component {
             month: '',
             year: '',
             display: false,
-            create: false
+            create: false,
+            fixedexpenses: false
         }
     }
 
@@ -180,13 +183,16 @@ export default class EnterExpense extends Component {
         return (
             <div className="wrapper">
                 
-                <h3><p>{year} Budget</p>
-                <p><Link className="btn fixedexpenses" to={'/FixedExpenses'}>Fixed Expenses</Link></p>
+
+            <div className="fixtop">
+            <h3>
+                    {/* <p>{year} Budget</p> */}
+                {/* <p><Link className="btn fixedexpenses" to={'/FixedExpenses'}>Fixed Expenses</Link></p> */}
                 {this.state.monthlist.map((monthlist, index) => {
                     return (
-                        <button className="btn" key={index} 
+                        <span className="magicbutton" key={index} 
                         onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years)}>
-                            {`${monthlist.monthname} ${monthlist.years}`}</button>
+                            <a>{`${monthlist.monthname} ${monthlist.years}`}</a></span>
                         
                     )
                 })}</h3>
@@ -199,26 +205,26 @@ export default class EnterExpense extends Component {
                             toggleCreate={this.toggleCreate}/>
                     </div>
                     :
-                    <div>
-                    <button className='btn' onClick={this.toggleCreate}>Add Month</button>
-                    </div>
+                    <span className="magicbutton">
+                    <span onClick={this.toggleCreate}><a>Add Month |  </a></span>
+                    </span>
                 }
 
 
                 {
                     this.state.display ?
-                        <div>
+                        <div className="monthtotals">
                             <ShowMonthTotals
                               toggleDisplay={this.toggleDisplay}/>
                         </div>
                         :
-                        <div>
-                        <button className='btn' onClick={this.toggleDisplay}>Show Totals</button>
-
-                        </div>
+                        <span className="magicbutton">  
+                        <span onClick={this.toggleDisplay}><a>Show Totals</a></span>
+                        </span>
 
                 }
-                 <span id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</span>
+                
+                 <p><div id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</div></p>
                  <div>
                     
                  </div>
@@ -253,6 +259,9 @@ export default class EnterExpense extends Component {
                 </tbody>
                 </table>
                
+            </div>
+        
+                
 
             </div>
         )

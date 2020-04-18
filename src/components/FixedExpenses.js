@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 import ListFixedExpenses from './ListFixedExpenses'
 import AddFixedExpense from './AddFixedExpense'
@@ -150,7 +150,7 @@ export default class FixedExpenses extends Component {
             <div className="wrapper">
                 
                 <h1 className="listExpense"><p>Monthly Fixed Expenses</p>
-                <p><Link className="btn fixedexpenses" to={'/'}>Home</Link></p>
+                {/* <p><Link className="btn fixedexpenses" to={'/'}>Home</Link></p> */}
               
                 </h1>
                 

@@ -312,9 +312,154 @@ button:not(.btn):focus {
   border-radius: 5%;
   margin-left: auto;
   margin-right: auto;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
 }
 
 .fixedexpenses {
   text-decoration: none;
   font-size: 12px;
 }
+
+header{
+  height: 100px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-size: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  border-bottom: 1px black solid;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  background-color: white;
+
+
+}
+
+.headerSection1{
+  /* border: 1px black solid; */
+  height: 70px;
+  width: 100px;
+  margin: 30px;
+  color: white;
+  font-size: 15px;
+  /* border: 2px black solid; */
+
+
+}
+
+.headerSection1 img{
+  height: 100%;
+}
+
+.headerSection2{
+/* border: 1px black solid; */
+height: 100px;
+width: 200px;
+color: black;  
+
+}
+
+.headerSection2 input{
+font-size: 15px;
+}
+
+.menu{
+  margin-right: 40px;
+
+  
+
+}
+
+.menu a {
+  text-decoration: none;
+  /* margin: 0 10px; */
+  line-height: 100px;
+  /* color: black; */
+  font-size: 18px;
+  /* font-weight: bold; */
+  clear: right;
+  text-align: left;
+  padding-left: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #333333;
+ text-decoration: none;
+ transition: color 0.2s linear;
+ -webkit-transition: color 0.2s linear;
+ -moz-transition: color 0.2s linear;
+  
+
+
+}
+
+.menu a:hover {
+  color:lightblue;
+  /* font-size: px; */
+  
+}
+
+#toggle {
+  display: none;
+}
+
+.label {
+  color: black;
+  font-size: 28px;
+  line-height: 100px;
+  width: 26px;
+  margin-right: 10px;
+  float: right;
+  display: none;
+}
+
+.headerSectionMiddle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .headerMenu {
+      font-Size: 12px;
+      font-Family: Times;
+  }
+
+  .magicbutton {
+    width: 200px;
+    /* border: .5px black solid; */
+
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.2s linear;
+
+  }
+
+  .magicbutton a{
+    transition: color 0.2s linear;
+    /* border-radius: 6px;
+    background-color: lightblue; */
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+  }
+
+  .magicbutton a:hover {
+    color: lightblue;
+  }
+
+  .monthtotals {
+    transition: opacity 0.5s;
+    opacity: 1;
+  }
+  .monthtotals.hide {
+    opacity: 0;
+    pointer-events:none;
+  }
