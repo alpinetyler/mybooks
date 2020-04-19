@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import EnterExpense from './EnterExpense';
+import EnterExpense from './EnterExpense';
 // import logo from './images/logo.jpg'
 
 function Header(props) {
@@ -25,7 +25,7 @@ function Header(props) {
                             <a>Fixed Expenses</a>
                         </Link>
 
-                        {/* <span onClick={props.toggleDisplay}>
+                        <span onClick={props.toggleDisplay}>
                             <a>Category Totals</a>
                         </span>
 
@@ -33,7 +33,7 @@ function Header(props) {
                             <a>Create New Month</a>
                         </span>
 
-                        <Link to={'FixedExpenses'} >
+                        {/* <Link to={'FixedExpenses'} >
                             <a>Change Month</a>
                         </Link> */}
 
