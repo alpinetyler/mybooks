@@ -23,6 +23,8 @@ export default class ShowMonthTotals extends Component{
     }
 
     componentDidMount() {
+
+        // this.props.toggleDisplay()
        
         axios.get('/api/totals').then((res) => {
             this.setState({

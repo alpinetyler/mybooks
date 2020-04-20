@@ -25,9 +25,9 @@ function Header(props) {
                             <a>Fixed Expenses</a>
                         </Link>
 
-                        <span onClick={props.toggleDisplay}>
+                        <Link onClick={'ShowMonthTotals'}>
                             <a>Category Totals</a>
-                        </span>
+                        </Link>
 
                         <span onClick={props.toggleCreate} >
                             <a>Create New Month</a>
