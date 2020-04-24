@@ -14,28 +14,15 @@ export default class AddCategory extends Component {
         this.setState({
             [name]: value
         })
-        console.log(555, name, value)
     }
 
     handleClick = () => {
         let newCategory = this.state
-        console.log(666, newCategory)
-        this.createCategory(newCategory)
+        this.props.createCategory(newCategory)
         this.setState({
             categoryname: ''
         })
     }
-
-    createCategory = newCategory => {
-        console.log(777, newCategory)
-        axios.post('/api/categories', newCategory)
-            .then(res => {
-                this.setState({
-                    categoryname: res.data
-                })
-            }).catch(err => console.log(err))
-    }
-
 
     render() {
         return (

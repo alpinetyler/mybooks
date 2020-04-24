@@ -5,6 +5,7 @@ import FixedExpenses from './components/FixedExpenses';
 import EditCategories from './components/EditCategories';
 import ShowMonthTotals  from './components/ShowMonthTotals';
 import AddMonth from './components/AddMonth';
+import ReserveExpenses from './components/ReserveExpenses';
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path="/EditCategories" component={EditCategories} />
         <Route path="/ShowMonthTotals" component={ShowMonthTotals} /> 
         <Route path="/AddMonth" component={AddMonth} />  
+        <Route path="/ReserveExpenses" component={ReserveExpenses} />
     </Switch>
 )

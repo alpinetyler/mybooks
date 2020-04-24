@@ -13,7 +13,7 @@ export default class EditCategories extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         axios.get('/api/categories').then((res) => {
             this.setState({
                 categories: res.data
@@ -21,9 +21,18 @@ export default class EditCategories extends Component {
         }).catch(err => console.log('error getting expenses:', err))
     }
 
+    createCategory = newCategory => {
+        axios.post('/api/categories', newCategory)
+            .then(res => {
+                this.setState({
+                    categoryname: res.data
+                })
+            }).catch(err => console.log(err))
+            this.forceUpdate();
+    }
+
     deleteCategory = id => {
         // from sweet alert
-        console.log(1111, id)
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this category!",
@@ -47,6 +56,8 @@ export default class EditCategories extends Component {
               swal("Your category is safe!");
             }
           }); 
+
+          this.forceUpdate();
     }
     
     render() {
@@ -70,7 +81,8 @@ export default class EditCategories extends Component {
                         </tr>
                             )
                 })}
-                <AddCategory />
+                <AddCategory 
+                    createCategory={this.createCategory} />
                 </tbody>
                 </table>
                 

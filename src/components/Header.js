@@ -25,13 +25,13 @@ function Header(props) {
                             <a>Fixed Expenses</a>
                         </Link>
 
-                        <Link to={'/ShowMonthTotals'}>
-                            <a>Category Totals</a>
+                        <Link to={'/ReserveExpenses'}>
+                            <a>Reserve Account</a>
                         </Link>
 
-                        <Link to={'AddMonth'} >
+                        {/* <Link to={'AddMonth'} >
                             <a>Create New Month</a>
-                        </Link>
+                        </Link> */}
 
                         {/* <Link to={'FixedExpenses'} >
                             <a>Change Month</a>
