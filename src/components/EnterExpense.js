@@ -192,7 +192,7 @@ export default class EnterExpense extends Component {
                     return (
                         <span className="magicbutton" key={index} 
                         onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years)}>
-                            <a>{`${monthlist.monthname} ${monthlist.years}`}</a></span>
+                            <a>{`${monthlist.monthname} ${monthlist.years}`}  |   </a></span>
                         
                     )
                 })}</h3>
