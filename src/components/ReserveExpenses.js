@@ -86,7 +86,7 @@ export default class ReserveExpenses extends Component {
     }
     
 
-    createExpense = newReserveExpense => {
+    createReserveExpense = newReserveExpense => {
         axios.post('/api/reserveexpenses', newReserveExpense)
             .then(res => {
                 this.setState({
