@@ -242,6 +242,7 @@ export default class EnterExpense extends Component {
                                 <td className="deleteSaveColumn myHeaderCell"><h3>Del/Save</h3></td>
                 </tr>
                
+               
                 
                     
                 {this.state.expenses.map((expense, index) => {

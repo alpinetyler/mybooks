@@ -7,7 +7,6 @@ ${category},
 ${userid}
 );
 
-SELECT name, amount, notes, category, userid
-FROM fixedexpenses
+SELECT * FROM fixedexpenses
 WHERE userid = 1
 ORDER BY id ASC;

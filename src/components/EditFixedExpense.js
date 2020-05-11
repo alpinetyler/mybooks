@@ -89,7 +89,7 @@ export default class EditExpense extends Component {
                              {this.state.categories.map((category, index) => {
                                  return (
                                      <option
-                                         key={category.id}
+                                         key={index}
                                          value={category.categoryname}>{category.categoryname}</option>
                                  )
                              })}

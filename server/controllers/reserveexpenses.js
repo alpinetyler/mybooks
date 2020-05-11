@@ -10,7 +10,7 @@ module.exports = {
 
     create: (req, res) => {
         let db = req.app.get('db')
-        //console.log(999, req.body)
+        // console.log(999, req.body)
         db.createReserveExpense(req.body).then(response => {
             res.send(response)
         }).catch(err => console.log(err))
@@ -30,7 +30,7 @@ module.exports = {
     delete: (req, res) => {
         let db = req.app.get('db');
         const { id } = req.params;//get this from param on url
-        db.deleteReserverExpense([id]).then(response => {
+        db.deleteReserveExpense([id]).then(response => {
             res.status(200).send(response);
         });
     }

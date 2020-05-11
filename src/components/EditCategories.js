@@ -9,7 +9,7 @@ export default class EditCategories extends Component {
         super(props)
 
         this.state = {
-           categories: [] 
+           categories: []
         }
     }
 
@@ -25,10 +25,9 @@ export default class EditCategories extends Component {
         axios.post('/api/categories', newCategory)
             .then(res => {
                 this.setState({
-                    categoryname: res.data
+                    categories: res.data
                 })
             }).catch(err => console.log(err))
-            this.forceUpdate();
     }
 
     deleteCategory = id => {
@@ -47,7 +46,7 @@ export default class EditCategories extends Component {
             if (willDelete) {
                 console.log(2222, id)
             axios.delete(`/api/categories/${id}`)
-            .then(res => this.setState({ expenses: res.data }))
+            .then(res => this.setState({ categories: res.data }))
             .catch(err => console.log(err))
               swal("Poof! Your category has been deleted!", {
                 icon: "success",
@@ -57,7 +56,7 @@ export default class EditCategories extends Component {
             }
           }); 
 
-          this.forceUpdate();
+
     }
     
     render() {

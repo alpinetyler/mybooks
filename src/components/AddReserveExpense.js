@@ -14,10 +14,9 @@ export default class AddReserveExpense extends Component {
             name: '',
             date: date,
             amount: '',
-            ischecked: '',
             notes: '',
-            category: '',
-            fulldate: fulldate,
+            ischecked: '',
+            category: 'reserve',
             userid: 1,
 
             expenses: [],
@@ -44,17 +43,16 @@ export default class AddReserveExpense extends Component {
     }
 
     handleClick = () => {
-        let newExpense = this.state
-        this.props.createExpense(newExpense)
+        let newReserveExpense = this.state
+        // console.log(333, newReserveExpense)
+        this.props.createReserveExpense(newReserveExpense)
         this.setState({
             name: '',
             date: date,
             amount: '',
             ischecked: '',
             notes: '',
-            category: '',
-            class: '',
-            fulldate: fulldate,
+            category: 'reserve',
             userid: 1,
 
             add: false
@@ -120,9 +118,9 @@ export default class AddReserveExpense extends Component {
                     </td>
 
                     <td className="categoryColumn myAddCell">
-                    <select className="listExpense"
+                    {/* <select className="listExpense"
                                 name="category" onChange={this.handleChange}>
-                                    value={this.state.category}
+                                    value={'reserve'}
                                 Selected<option>Choose Category</option>
                                 {this.state.categories.map((category) => {
                                     return (
@@ -131,7 +129,8 @@ export default class AddReserveExpense extends Component {
                                             value={category.categoryname}>{category.categoryname}</option>
                                     )
                                 })}
-                            </select>
+                            </select> */}
+                            <span value="reserve" name="category">reserve</span>
                     </td>
                     <td className="balanceColumn myAddCell">
                         <button style={styles.saveButton}  onClick={this.handleClick}>Save</button>

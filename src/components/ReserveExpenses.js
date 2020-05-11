@@ -26,7 +26,7 @@ export default class ReserveExpenses extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            reserveexpenses: [],
+            expenses: [],
             categories: [],
             month: '',
             year: '',
@@ -56,11 +56,11 @@ export default class ReserveExpenses extends Component {
     componentDidMount() {
        
         axios.get('/api/reserveexpenses', {
-            params: {
+            // params: {
                 
-                month: month,
-                year: year
-            }
+            // //     month: month,
+            // //     year: year
+            // // }
         }).then((res) => {
             this.setState({
                 expenses: res.data
@@ -87,10 +87,11 @@ export default class ReserveExpenses extends Component {
     
 
     createReserveExpense = newReserveExpense => {
+        // console.log(111, newReserveExpense)
         axios.post('/api/reserveexpenses', newReserveExpense)
             .then(res => {
                 this.setState({
-                    reserveexpenses: res.data
+                    expenses: res.data
                 })
             }).catch(err => console.log(err))
     }
@@ -98,6 +99,7 @@ export default class ReserveExpenses extends Component {
 
     deleteReserveExpense = id => {
         // from sweet alert
+        // console.log(555, id )
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this expense!",
@@ -112,9 +114,9 @@ export default class ReserveExpenses extends Component {
             if (willDelete) {
                 //console.log(2222, id)
             axios.delete(`/api/reserveexpenses/${id}`)
-            .then(res => this.setState({ reserveexpenses: res.data }))
+            .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
-              swal("Poof! Your reserve expense has been deleted!", {
+              swal("Poof! Your expense has been deleted!", {
                 icon: "success",
               });
             } else {
@@ -144,71 +146,62 @@ export default class ReserveExpenses extends Component {
     }
 
     render() {
-        let beginningBalance = 8000
+        // let beginningBalance = 8000
+        // console.log(11111, this.state.expenses)
         
         //console.log(1111, this.state.monthlist)
         return (
-        //     <div className="wrapper">
+            <div className="wrapper">
                 
 
-        //     <div className="fixtop">
-        //     <h3>
-        //             {/* <p>{year} Budget</p> */}
-        //         {/* <p><Link className="btn fixedexpenses" to={'/FixedExpenses'}>Fixed Expenses</Link></p> */}
-        //         {this.state.monthlist.map((monthlist, index) => {
-        //             return (
-        //                 <span className="magicbutton" key={index} 
-        //                 onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years)}>
-        //                     <a>{`${monthlist.monthname} ${monthlist.years}`}</a></span>
-                        
-        //             )
-        //         })}</h3>
+            <div className="fixtop">
+            
                 
                 
-        //          <p><div id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</div></p>
-        //          <div>
+                 <div><h2>Reserve Account</h2></div>
+                 <div>
                     
-        //          </div>
+                 </div>
                  
-        //          <table>
-        //          <tbody>
-        //          <tr>
-        //                         <td className="dateColumn myHeaderCell"><h3>Date</h3></td>
-        //                         <td className="nameColumn myHeaderCell"><h3>Name</h3></td>
-        //                         <td className="amountColumn myHeaderCell"><h3>Amount</h3></td>
-        //                         <td className="√Column myHeaderCell"><h3>√</h3></td>
-        //                         <td className="notesColumn myHeaderCell"><h3>Notes</h3></td>
-        //                         <td className="categoryColumn myHeaderCell"><h3>Category</h3></td>
-        //                         <td className="balanceColum myHeaderCell"><h3>Balance</h3></td>
-        //                         <td className="deleteSaveColumn myHeaderCell"><h3>Del/Save</h3></td>
-        //         </tr>
+                 <table>
+                 <tbody>
+                 <tr>
+                                <td className="dateColumn myHeaderCell"><h3>Date</h3></td>
+                                <td className="nameColumn myHeaderCell"><h3>Name</h3></td>
+                                <td className="amountColumn myHeaderCell"><h3>Amount</h3></td>
+                                <td className="√Column myHeaderCell"><h3>√</h3></td>
+                                <td className="notesColumn myHeaderCell"><h3>Notes</h3></td>
+                                <td className="categoryColumn myHeaderCell"><h3>Category</h3></td>
+                                <td className="balanceColum myHeaderCell"><h3>Balance</h3></td>
+                                <td className="deleteSaveColumn myHeaderCell"><h3>Del/Save</h3></td>
+                </tr>
                
                 
                     
-        //         {this.state.expenses.map((expense, index) => {
-        //             return (
-        //                 <ListReserveExpenses
-        //                     key={index}
-        //                     expense={expense}
-        //                     updateExpense={this.updateExpense}
-        //                     deleteExpense={() => this.deleteExpense(expense.id)}
-        //                     beginningBalance={beginningBalance} />
+                {this.state.expenses.map((expense, index) => {
+                    return (
+                        <ListReserveExpenses
+                            key={index}
+                            expense={expense}
+                            updateExpense={this.updateReserveExpense}
+                            deleteReserveExpense={() => this.deleteReserveExpense(expense.id)}
+                             />
 
-        //             )
-        //         })}
-        //         <AddReserveExpense createReserveExpense={this.createReserveExpense} />
-        //         </tbody>
-        //         </table>
+                    )
+                })}
+                <AddReserveExpense createReserveExpense={this.createReserveExpense} />
+                </tbody>
+                </table>
                
-        //     </div>
+            </div>
         
                 
 
-        //     </div>
-        // )
-
-        <h3> **** Under Construction ****  </h3>
-
+            </div>
         )
+
+       
+
+        
     }
 }

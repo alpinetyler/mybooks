@@ -18,27 +18,27 @@ function Header(props) {
                     <span className="menu">
 
                         <Link to={'/'}>
-                            <a>Home</a>
+                            <span>Home</span>
                         </Link>
 
                         <Link to={'FixedExpenses'} >
-                            <a>Fixed Expenses</a>
+                            <span>Fixed Expenses</span>
                         </Link>
 
                         <Link to={'/ReserveExpenses'}>
-                            <a>Reserve Account</a>
+                            <span>Reserve Account</span>
                         </Link>
 
                         {/* <Link to={'AddMonth'} >
-                            <a>Create New Month</a>
+                            <span></span>Create New Month</span>
                         </Link> */}
 
                         {/* <Link to={'FixedExpenses'} >
-                            <a>Change Month</a>
+                            <span></span>Change Month</span>
                         </Link> */}
 
                         <Link to={'EditCategories'} >
-                            <a>Edit Categories</a>
+                            <span> Categories</span>
                         </Link>
 
                     </span>

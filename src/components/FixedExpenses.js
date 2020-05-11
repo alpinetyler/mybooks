@@ -23,7 +23,7 @@ export default class FixedExpenses extends Component {
         super(props)
         this.state = {
             fixedexpenses: [],
-            categories: []
+            categories: [],
             // monthlist: [],
             // month: '',
             // year: ''
@@ -52,23 +52,17 @@ export default class FixedExpenses extends Component {
 
     }
 
-    // componentDidUpdate(prevProps: any, prevState: any) {
-    //     const { month, year} = this.state;
-    //     if(month !== prevState.month || year !== prevState.year){
-    //         axios.get('/api/expenses', {
-    //             params: {
-                    
-    //                 month: month,
-    //                 year: year
-    //             }
-    //         }).then((res) => {
-    //             this.setState({
-    //                 expenses: res.data
-    //             })
-    //         }).catch(err => console.log('error getting expenses:', err))
-    //     }
+    componentDidUpdate(prevProps: any, prevState: any) {
+        const { month, year} = this.state;
+        if(month !== prevState.month || year !== prevState.year){
+            axios.get('/api/expenses').then((res) => {
+                this.setState({
+                    fixedexpenses: res.data
+                })
+            }).catch(err => console.log('error getting expenses:', err))
+        }
   
-    // }
+    }
 
     handleChange = e => {
         
@@ -93,6 +87,7 @@ export default class FixedExpenses extends Component {
                     fixedexpenses: res.data
                 })
             }).catch(err => console.log(err))
+            this.forceUpdate()
     }
 
     deleteFixedExpense = id => {
@@ -109,9 +104,9 @@ export default class FixedExpenses extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
-            console.log(1111, id)
+            // console.log(1111, id)
             axios.delete(`/api/fixedexpenses/${id}`)
-            .then(res => this.setState({ expenses: res.data }))
+            .then(res => this.setState({ fixedexpenses: res.data }))
             .catch(err => console.log(err))
               swal("Poof! Your fixed expense has been deleted!", {
                 icon: "success",
@@ -136,8 +131,9 @@ export default class FixedExpenses extends Component {
     }
 
     updateFixedExpense = fixedexpense => {
+        // console.log(22222, fixedexpense)
         axios.put(`/api/fixedexpenses/${fixedexpense.id}`, fixedexpense)
-            .then(res => this.setState({ expenses: res.data }))
+            .then(res => this.setState({ fixedexpenses: res.data }))
             .catch(err => console.log(err))
             // alert("Changes Saved")
     }
