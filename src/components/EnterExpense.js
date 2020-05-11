@@ -223,8 +223,8 @@ export default class EnterExpense extends Component {
                         </span>
 
                 }
-                
-                 <p><div id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</div></p>
+                <div><p></p></div>
+                 <div id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</div>
                  <div>
                     
                  </div>
