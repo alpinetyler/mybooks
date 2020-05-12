@@ -94,6 +94,7 @@
 }
 
 .hoverdelete {
+  color: rgb(202, 199, 199);
   transition: color 0.1s linear;
  -webkit-transition: color 0.1s linear;
  -moz-transition: color 0.1s linear;
@@ -222,6 +223,10 @@ table {
   font-family: 'Times New Roman', Times, serif;
   color: green
   
+}
+
+.sudobtn{
+  border: none;
 }
 
 .btn {

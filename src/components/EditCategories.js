@@ -75,8 +75,9 @@ export default class EditCategories extends Component {
                             <td className="myTableCell listExpense nameColumn">{category.categoryname}</td>
                             <td className="myTableCell listExpense"><button 
                             key={index}
+                            className="fa hoverdelete sudobtn"
                             onClick={(e) => this.deleteCategory(e.target.value)} 
-                            value={category.id}>Delete</button></td>
+                            value={category.id}>&#xf014;</button></td>
                         </tr>
                             )
                 })}
