@@ -159,6 +159,11 @@ input[type="text"]
   background-color: lightblue;
 }
 
+.sticky{
+  overflow: hidden;
+  position: sticky;
+}
+
 table {
   table-layout: fixed;
   width: 1000px;
@@ -468,3 +473,9 @@ font-size: 15px;
     opacity: 0;
     pointer-events:none;
   }
+
+  /* table  tbody{
+    display:block;
+    height:500px;
+    overflow:auto;
+  } */

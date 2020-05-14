@@ -139,9 +139,7 @@ export default class AddReserveExpense extends Component {
                         <input
                             type="text"
                             className="listExpense"
-                            style={styles.notes}
                             name="fulldate"
-                            placeholder="Full Date"
                             onChange={this.handleChange}
                             value={this.state.fulldate}
                         />
