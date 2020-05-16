@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
 import axios from 'axios';
 import AddCategory from './AddCategory'
+import LandingPage from './LandingPage'
 
 import swal from 'sweetalert';
 
-export default class EditCategories extends Component {
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
+class EditCategories extends Component {
     constructor(props){
         super(props)
 
@@ -19,6 +24,9 @@ export default class EditCategories extends Component {
                 categories: res.data
             })
         }).catch(err => console.log('error getting expenses:', err))
+
+          //keep user logged in after refresh
+          this.props.getUser()
     }
 
     createCategory = newCategory => {
@@ -60,8 +68,14 @@ export default class EditCategories extends Component {
     }
     
     render() {
+
+        let { user } = this.props
+
         return(
             <div>
+                 <>    
+        {user? // Only show months, totals, create month, and expenses if user is logged in
+            <span>
                 <table className="narrowTable">
                 <tbody>
                     <tr>
@@ -85,9 +99,23 @@ export default class EditCategories extends Component {
                     createCategory={this.createCategory} />
                 </tbody>
                 </table>
-                
+                 </span>
+                 :
+                 <span>
+                     <LandingPage />
+                 </span>
+                 }
+                 </> 
             </div>
            
         )
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(EditCategories)

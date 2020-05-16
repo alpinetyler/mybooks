@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert';
+import LandingPage from './LandingPage'
 // import {Link} from 'react-router-dom';
+
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
 
 import ListReserveExpenses from './ListReserveExpenses'
 import AddReserveExpense from './AddReserveExpense'
@@ -22,7 +27,7 @@ const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2
 })
 
-export default class ReserveExpenses extends Component {
+class ReserveExpenses extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -66,6 +71,9 @@ export default class ReserveExpenses extends Component {
                 expenses: res.data
             })
         }).catch(err => console.log('error getting expenses:', err))
+
+          //keep user logged in after refresh
+          this.props.getUser()
 
     }
 
@@ -150,13 +158,17 @@ export default class ReserveExpenses extends Component {
         // console.log(11111, this.state.expenses)
         
         //console.log(1111, this.state.monthlist)
+
+        let { user } = this.props
         return (
             <div className="wrapper">
                 
 
             <div className="fixtop">
             
-                
+            <>    
+        {user? // Only show months, totals, create month, and expenses if user is logged in
+            <span>
                 
                  <div><h2>Reserve Account</h2></div>
                  <div>
@@ -192,6 +204,14 @@ export default class ReserveExpenses extends Component {
                 <AddReserveExpense createReserveExpense={this.createReserveExpense} />
                 </tbody>
                 </table>
+
+                </span>
+            :
+            <span>
+                <LandingPage />
+            </span>
+            }
+            </>
                
             </div>
         
@@ -205,3 +225,11 @@ export default class ReserveExpenses extends Component {
         
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(ReserveExpenses)

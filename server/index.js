@@ -12,6 +12,7 @@ const MonthCtrl = require('./controllers/months')
 const FixedExpenseCtrl = require('./controllers/fixedexpenses')
 const totalsCtrl = require('./controllers/totals')
 const ReserveExpenseCtrl = require('./controllers/reserveexpenses')
+const AuthCtrl = require('./controllers/auth')
 
 const app = express()
 
@@ -69,8 +70,18 @@ app.delete('/api/fixedexpenses/:id', FixedExpenseCtrl.delete)//delete expense
 // Endpoints for getting current totals for each category in the month
 app.get('/api/totals', totalsCtrl.read)//read totals
 
-// Full CRUD for managing expenses
+// Full CRUD for managing reserve expenses
 app.post('/api/reserveexpenses', ReserveExpenseCtrl.create)//create expense
 app.get('/api/reserveexpenses', ReserveExpenseCtrl.read)//read expense
 app.put('/api/reserveexpenses/:id', ReserveExpenseCtrl.update)//update expense
 app.delete('/api/reserveexpenses/:id', ReserveExpenseCtrl.delete)//delete expense
+
+// Register and login endpoints
+app.post('/auth/register', AuthCtrl.register)
+app.post('/auth/login', AuthCtrl.login)
+app.get('/auth/logout', AuthCtrl.logout)
+app.get('/auth/currentUser', AuthCtrl.currentUser)
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});

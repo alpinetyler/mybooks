@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert';
-// import {Link} from 'react-router-dom';
+import LandingPage from './LandingPage'
+
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
 
 import ListFixedExpenses from './ListFixedExpenses'
 import AddFixedExpense from './AddFixedExpense'
@@ -18,7 +22,7 @@ import AddFixedExpense from './AddFixedExpense'
 //     minimumFractionDigits: 2
 // })
 
-export default class FixedExpenses extends Component {
+class FixedExpenses extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -44,11 +48,8 @@ export default class FixedExpenses extends Component {
             })
         }).catch(err => console.log('error getting fixed expenses:', err))
 
-        // axios.get('/api/monthlist').then((res) => {
-        //     this.setState({
-        //         monthlist: res.data
-        //     })
-        // }).catch(err => console.log('error getting month list:', err))
+          //keep user logged in after refresh
+          this.props.getUser()
 
     }
 
@@ -141,10 +142,12 @@ export default class FixedExpenses extends Component {
     render() {
         // let beginningBalance = 8000
         
-        //console.log(1111, this.state.monthlist)
+        let { user } = this.props
         return (
             <div className="wrapper">
-                
+        <>    
+        {user? // Only show months, totals, create month, and expenses if user is logged in
+            <span>
                 <h1 className="listExpense"><p>Monthly Fixed Expenses</p>
                 {/* <p><Link className="btn fixedexpenses" to={'/'}>Home</Link></p> */}
               
@@ -174,10 +177,23 @@ export default class FixedExpenses extends Component {
                 createFixedExpense={this.createFixedExpense} />
                 </tbody>
                 </table>
-               
+                </span>
+            :
+            <span>
+                <LandingPage />
+            </span>
+            }
+            </> 
 
             </div>
         )
     }
 }
 
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(FixedExpenses)

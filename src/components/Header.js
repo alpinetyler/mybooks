@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EnterExpense from './EnterExpense';
+import LandingPage from './LandingPage'
 // import logo from './images/logo.jpg'
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
 function Header(props) {
+    let user = props && props.user
 
     return(
         <header>
@@ -15,6 +20,10 @@ function Header(props) {
             </section> */}
             <section className="headerSectionMiddle">
             <input type="checkbox" id="toggle" />
+
+            
+            {user && //hide all menu items when user is not logged in
+                    
                     <span className="menu">
 
                         <Link to={'/'}>
@@ -42,9 +51,22 @@ function Header(props) {
                         </Link>
 
                     </span>
+
+            //end of hidden items when user is not logged in     
+            }
+            </section>
+            <section className="headerSection2">
+                {user && <LandingPage />}
+                <label htmlFor="toggle" className="label">&#9776;</label>
+                
             </section>
         </header>
     )
 }
 
-export default Header
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(Header)
