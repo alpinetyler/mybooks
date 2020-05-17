@@ -188,6 +188,7 @@ class EnterExpense extends Component {
     render() {
         let beginningBalance = 8000
         let { user } = this.props
+        console.log(1111, user.email)
         
         //console.log(1111, this.state.monthlist)
         return (
