@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
 var today = new Date();
 var date = (today.getMonth() + 1) + '/' + today.getDate();
 
 var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-
-export default class AddExpense extends Component {
+class AddExpense extends Component {
     constructor(props) {
         super(props)
+
+        let { user } = this.props
+        let id = user && user.id
+        // console.log(999, id)
+
         this.state = {
             name: '',
             date: date,
@@ -18,7 +26,7 @@ export default class AddExpense extends Component {
             notes: '',
             category: '',
             fulldate: fulldate,
-            userid: 1,
+            userid: id,
 
             expenses: [],
             categories: [],
@@ -55,7 +63,7 @@ export default class AddExpense extends Component {
             category: '',
             class: '',
             fulldate: fulldate,
-            userid: 1,
+            userid: '',
 
             add: false
         })
@@ -73,6 +81,7 @@ export default class AddExpense extends Component {
     }
 
     render() {
+
         return (
             <>
 
@@ -207,3 +216,11 @@ let styles = {
         fontSize: '15px'
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(AddExpense)

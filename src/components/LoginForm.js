@@ -41,7 +41,7 @@ class LoginForm extends Component {
     }
 
     render() {
-        console.log(this.state.signup)
+        // console.log(this.state.signup)
         return (
             <div className="login">
                 {this.state.signup ?

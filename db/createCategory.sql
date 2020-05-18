@@ -1,7 +1,9 @@
-INSERT INTO category(categoryname)
+INSERT INTO category(categoryname, userid)
 VALUES(
-${categoryname}
+${categoryname},
+18
 );
 
 SELECT * FROM category
+WHERE userid = 18
 ORDER BY categoryname ASC;

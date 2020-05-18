@@ -8,11 +8,12 @@ import { logout } from '../redux/reducers/user'
 function Landing(props) {
 console.log(props)
     let { user } = props
+    let name = user && user.name
     // console.log(33333, props.user)
     return (
         <div>
             <span>
-            { user ? <div className="mainlogout" onClick={props.logout}>Logout</div> 
+            { user ? <div className="mainlogout" onClick={props.logout}>Logout {name}</div> 
              
             
             : 
