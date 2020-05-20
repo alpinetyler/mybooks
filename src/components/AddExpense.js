@@ -52,6 +52,12 @@ class AddExpense extends Component {
     }
 
     handleClick = () => {
+
+        let { user } = this.props
+        let id = user && user.id
+
+        console.log("handleclick:", id)
+
         let newExpense = this.state
         this.props.createExpense(newExpense)
         this.setState({
@@ -63,7 +69,7 @@ class AddExpense extends Component {
             category: '',
             class: '',
             fulldate: fulldate,
-            userid: '',
+            userid: id,
 
             add: false
         })
