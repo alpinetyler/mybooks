@@ -72,14 +72,14 @@ class EnterExpense extends Component {
         let id = user && user.id
 
         console.log("componentDidMount:", this.props.user)
-        console.log(4444, id)
+        console.log(44441, id)
 
         axios.get('/api/expenses', {
             params: {
                 
                 month: month,
                 year: year,
-                userid: this.state.userid
+                userid: id
             }
         }).then((res) => {
             this.setState({
