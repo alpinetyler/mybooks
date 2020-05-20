@@ -16,6 +16,8 @@ import AddMonth from './AddMonth';
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 
+
+
 var today = new Date();
 //var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var year = today.getFullYear();
@@ -31,6 +33,9 @@ const formatter = new Intl.NumberFormat('en-US', {
 class EnterExpense extends Component {
     constructor(props) {
         super(props)
+
+        // console.log("after super:", this.props)
+
         this.state = {
             expenses: [],
             categories: [],
@@ -61,12 +66,20 @@ class EnterExpense extends Component {
         }
 
     componentDidMount() {
-       
+
+        // get logged in user info to pass as parameter to database
+        let {user} = this.props
+        let id = user && user.id
+
+        console.log("componentDidMount:", this.props.user)
+        console.log(4444, id)
+
         axios.get('/api/expenses', {
             params: {
                 
                 month: month,
-                year: year
+                year: year,
+                userid: this.state.userid
             }
         }).then((res) => {
             this.setState({
@@ -87,12 +100,20 @@ class EnterExpense extends Component {
 
     componentDidUpdate(prevProps: any, prevState: any) {
         const { month, year} = this.state;
+        
+        // get logged in user info to pass as parameter to database
+        let { user } = this.props
+        let id = user && user.id
+
+        console.log("componentDidUpdate:", id)
+
         if(month !== prevState.month || year !== prevState.year){
             axios.get('/api/expenses', {
                 params: {
                     
                     month: month,
-                    year: year
+                    year: year,
+                    userid: id
                 }
             }).then((res) => {
                 this.setState({
@@ -189,8 +210,9 @@ class EnterExpense extends Component {
         let beginningBalance = 8000
         let { user } = this.props
         let id = user && user.id
-        // console.log(22222, id)
-       
+
+        
+        // console.log("this is the userid:", id)
         
         //console.log(1111, this.state.monthlist)
         return (

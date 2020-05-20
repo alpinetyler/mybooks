@@ -10,5 +10,5 @@ WHERE id = ${id};
 select distinct id, name, date, amount, ischecked, notes, category, userid, sum(amount) over (ORDER BY id) running_Total
 from homeexpenses
 WHERE category = 'reserve'
-AND userid = 18
+AND userid = ${userid}
 ORDER BY id ASC;
