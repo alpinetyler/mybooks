@@ -34,7 +34,7 @@ class EnterExpense extends Component {
     constructor(props) {
         super(props)
 
-        // console.log("after super:", this.props)
+        console.log("after super:", this.props)
 
         this.state = {
             expenses: [],

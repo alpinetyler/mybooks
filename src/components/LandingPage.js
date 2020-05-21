@@ -6,7 +6,7 @@ import { logout } from '../redux/reducers/user'
 
 
 function Landing(props) {
-console.log("from landing page:", props)
+// console.log("from landing page:", props)
     let { user } = props
     let name = user && user.name
     // console.log(33333, props.user)
