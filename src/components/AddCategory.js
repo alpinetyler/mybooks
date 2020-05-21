@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
+
 export default class AddCategory extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            categoryname: []
+            categoryname: '',
+            userid: ''
         }
     }
 
