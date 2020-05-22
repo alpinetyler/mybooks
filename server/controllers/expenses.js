@@ -31,8 +31,8 @@ module.exports = {
 
     delete: (req, res) => {
         let db = req.app.get('db');
-        const { id } = req.params;//get this from param on url
-        db.deleteExpense([id]).then(response => {
+        const { id, userid } = req.params;//get this from param on url
+        db.deleteExpense(id, userid).then(response => {
             res.status(200).send(response);
         });
     }

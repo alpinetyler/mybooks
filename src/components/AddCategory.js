@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
 
-export default class AddCategory extends Component {
+
+class AddCategory extends Component {
     constructor(props) {
         super(props)
+
+        let { user } = this.props
+        let id = user && user.id
+
         this.state = {
             categoryname: '',
-            userid: ''
+            userid: id
         }
     }
 
@@ -20,6 +27,8 @@ export default class AddCategory extends Component {
     }
 
     handleClick = () => {
+      
+
         let newCategory = this.state
         this.props.createCategory(newCategory)
         this.setState({
@@ -28,6 +37,9 @@ export default class AddCategory extends Component {
     }
 
     render() {
+
+       
+
         return (
             <tr>
                 <td className="nameColumn listExpense myAddCell">
@@ -46,3 +58,11 @@ export default class AddCategory extends Component {
         )
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(AddCategory)

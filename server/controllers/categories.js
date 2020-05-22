@@ -8,7 +8,6 @@ module.exports = {
 
     create: (req, res) => {
         let db = req.app.get('db')
-        //console.log(888, req.body)
         db.createCategory(req.body).then(response => {
             res.send(response)
         }).catch(err => console.log(err))
@@ -16,8 +15,8 @@ module.exports = {
 
     delete: (req, res) => {
         let db = req.app.get('db');
-        const { id } = req.params;//get this from param on url
-        db.deleteCategory([id]).then(response => {
+        const { id, userid } = req.params;//get this from param on url
+        db.deleteCategory(id, userid).then(response => {
             res.status(200).send(response);
         });
     }

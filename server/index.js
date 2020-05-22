@@ -49,12 +49,12 @@ app.listen(SERVER_PORT, () => {
 app.post('/api/expenses', ExpenseCtrl.create)//create expense
 app.get('/api/expenses', ExpenseCtrl.read)//read expense
 app.put('/api/expenses/:id', ExpenseCtrl.update)//update expense
-app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete expense
+app.delete('/api/expenses/:id&:userid', ExpenseCtrl.delete)//delete expense
 
 // Create, Read, Delete categories
 app.post('/api/categories', CategoryCtrl.create)//create category
 app.get('/api/categories', CategoryCtrl.read)//read categories
-app.delete('/api/categories/:id', CategoryCtrl.delete)//delete category
+app.delete('/api/categories/:id&:userid', CategoryCtrl.delete)//delete category
 
 // Create, Read, Delete months
 app.post('/api/monthlist', MonthCtrl.create)//create month

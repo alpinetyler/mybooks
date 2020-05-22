@@ -174,8 +174,12 @@ class EnterExpense extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
+
+                let { user } = this.props
+                let userid = user && user.id
+
                 //console.log(2222, id)
-            axios.delete(`/api/expenses/${id}`)
+            axios.delete(`/api/expenses/${id}&${userid}`)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
               swal("Poof! Your expense has been deleted!", {

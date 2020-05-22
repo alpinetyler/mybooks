@@ -9,21 +9,31 @@ import swal from 'sweetalert';
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 
+
 class EditCategories extends Component {
     constructor(props){
         super(props)
 
+        let { user } = this.props
+        let userid = user && user.id
+
         this.state = {
-           categories: []
+           categories: [],
+           userid: userid
         }
     }
 
     componentDidMount = () => {
-        axios.get('/api/categories').then((res) => {
+
+
+        // console.log(111111, this.state.userid)
+        // console.log("EditCategoriesCDM:", this.state.userid)
+
+        axios.get('/api/categories/').then((res) => {
             this.setState({
                 categories: res.data
             })
-        }).catch(err => console.log('error getting expenses:', err))
+        }).catch(err => console.log('error getting categories:', err))
 
           //keep user logged in after refresh
           this.props.getUser()
@@ -39,6 +49,7 @@ class EditCategories extends Component {
     }
 
     deleteCategory = id => {
+    
         // from sweet alert
         swal({
             title: "Are you sure?",
@@ -52,8 +63,12 @@ class EditCategories extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
-                console.log(2222, id)
-            axios.delete(`/api/categories/${id}`)
+
+                let { user } = this.props
+                let userid = user && user.id
+
+                console.log(2222, id, userid)
+            axios.delete(`/api/categories/${id}&${userid}`)
             .then(res => this.setState({ categories: res.data }))
             .catch(err => console.log(err))
               swal("Poof! Your category has been deleted!", {
@@ -68,9 +83,8 @@ class EditCategories extends Component {
     }
     
     render() {
-
         let { user } = this.props
-
+        let userid = user && user.id
         return(
             <div>
                  <>    
