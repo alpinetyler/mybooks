@@ -105,7 +105,8 @@ class EnterExpense extends Component {
         let { user } = this.props
         let id = user && user.id
 
-        console.log("componentDidUpdate:", id)
+        // console.log("componentDidUpdate:", id)
+       
 
         if(month !== prevState.month || year !== prevState.year){
             axios.get('/api/expenses', {
@@ -210,7 +211,7 @@ class EnterExpense extends Component {
         let beginningBalance = 8000
         let { user } = this.props
         let id = user && user.id
-
+        // console.log("render:", id)
         
         // console.log("this is the userid:", id)
         
