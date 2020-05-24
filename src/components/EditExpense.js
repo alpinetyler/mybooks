@@ -1,7 +1,11 @@
    import React, {Component} from 'react';
    import axios from 'axios';
 
-   export default class EditExpense extends Component {
+   //connect redux
+    import { connect } from 'react-redux'
+    import { getUser } from '../redux/reducers/user'
+
+    class EditExpense extends Component {
        constructor(props) {
            super(props)
 
@@ -24,11 +28,23 @@
        }
 
        componentDidMount() {
-        axios.get('/api/categories').then((res) => {
-            this.setState({
-                categories: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
+         // get logged in user info to pass as parameter to database
+         let {user} = this.props
+         let id = user && user.id
+ 
+         console.log("EnterExpenseCDM:", id)
+        
+ 
+         axios.get('/api/categories', {
+             params: {
+             
+                 userid: id
+             }
+         }).then((res) => {
+             this.setState({
+                 categories: res.data
+             })
+         }).catch(err => console.log('error getting expenses:', err))
     }
 
        handleChange = e => {
@@ -171,3 +187,11 @@
         width: '20px'
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(EditExpense)

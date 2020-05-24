@@ -66,11 +66,10 @@ class ReserveExpenses extends Component {
         console.log("ReserveExpensesCDM:", userid)
        
         axios.get('/api/reserveexpenses', {
-            // params: {
+            params: {
                 
-            // //     month: month,
-            // //     year: year
-            // // }
+                userid: userid
+            }
         }).then((res) => {
             this.setState({
                 expenses: res.data
@@ -125,8 +124,12 @@ class ReserveExpenses extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
+
+                let { user } = this.props
+                let userid = user && user.id
+
                 //console.log(2222, id)
-            axios.delete(`/api/reserveexpenses/${id}`)
+            axios.delete(`/api/reserveexpenses/${id}&${userid}`)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
               swal("Poof! Your expense has been deleted!", {

@@ -74,7 +74,7 @@ app.get('/api/totals', totalsCtrl.read)//read totals
 app.post('/api/reserveexpenses', ReserveExpenseCtrl.create)//create expense
 app.get('/api/reserveexpenses', ReserveExpenseCtrl.read)//read expense
 app.put('/api/reserveexpenses/:id', ReserveExpenseCtrl.update)//update expense
-app.delete('/api/reserveexpenses/:id', ReserveExpenseCtrl.delete)//delete expense
+app.delete('/api/reserveexpenses/:id&:userid', ReserveExpenseCtrl.delete)//delete expense
 
 // Register and login endpoints
 app.post('/auth/register', AuthCtrl.register)

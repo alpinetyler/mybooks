@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
 var today = new Date();
 var date = (today.getMonth() + 1) + '/' + today.getDate();
 
 var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 
-export default class AddReserveExpense extends Component {
+class AddReserveExpense extends Component {
     constructor(props) {
         super(props)
+
+        let { user } = this.props
+        let userid = user && user.id
+
         this.state = {
             name: '',
             date: date,
@@ -17,7 +25,7 @@ export default class AddReserveExpense extends Component {
             notes: '',
             ischecked: '',
             category: 'reserve',
-            userid: 1,
+            userid: userid,
 
             expenses: [],
             categories: [],
@@ -43,6 +51,10 @@ export default class AddReserveExpense extends Component {
     }
 
     handleClick = () => {
+
+        let { user } = this.props
+        let userid = user && user.id
+
         let newReserveExpense = this.state
         // console.log(333, newReserveExpense)
         this.props.createReserveExpense(newReserveExpense)
@@ -53,7 +65,7 @@ export default class AddReserveExpense extends Component {
             ischecked: '',
             notes: '',
             category: 'reserve',
-            userid: 1,
+            userid: userid,
 
             add: false
         })
@@ -204,3 +216,11 @@ let styles = {
         fontSize: '15px'
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(AddReserveExpense)

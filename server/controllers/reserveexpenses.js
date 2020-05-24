@@ -1,9 +1,8 @@
 module.exports = {
     read: (req, res, next) => {
         let db = req.app.get('db')
-        let month = req.query.month
-        let year = req.query.year
-        db.getReserveExpenses(month, year).then((response) => {
+        let userid = req.query.userid
+        db.getReserveExpenses(userid).then((response) => {
             res.send(response)
         }).catch(err => console.log(err))
     },
@@ -29,8 +28,8 @@ module.exports = {
 
     delete: (req, res) => {
         let db = req.app.get('db');
-        const { id } = req.params;//get this from param on url
-        db.deleteReserveExpense([id]).then(response => {
+        const { id, userid} = req.params;//get this from param on url
+        db.deleteReserveExpense(id, userid).then(response => {
             res.status(200).send(response);
         });
     }

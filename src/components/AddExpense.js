@@ -36,11 +36,23 @@ class AddExpense extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/categories').then((res) => {
-            this.setState({
-                categories: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
+         // get logged in user info to pass as parameter to database
+         let {user} = this.props
+         let id = user && user.id
+ 
+         console.log("EnterExpenseCDM:", id)
+        
+ 
+         axios.get('/api/categories', {
+             params: {
+             
+                 userid: id
+             }
+         }).then((res) => {
+             this.setState({
+                 categories: res.data
+             })
+         }).catch(err => console.log('error getting expenses:', err))
     }
 
     handleChange = e => {
