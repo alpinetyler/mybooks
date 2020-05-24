@@ -34,7 +34,7 @@ class EnterExpense extends Component {
     constructor(props) {
         super(props)
 
-        console.log("after super:", this.props)
+        // console.log("after super:", this.props.user)
 
         this.state = {
             expenses: [],
@@ -71,8 +71,8 @@ class EnterExpense extends Component {
         let {user} = this.props
         let id = user && user.id
 
-        console.log("componentDidMount:", this.props.user)
-        console.log(44441, id)
+        console.log("EnterExpenseCDM:", id)
+       
 
         axios.get('/api/expenses', {
             params: {

@@ -59,6 +59,11 @@ class ReserveExpenses extends Component {
         }
 
     componentDidMount() {
+
+        let { user } = this.props
+        let userid = user && user.id
+
+        console.log("ReserveExpensesCDM:", userid)
        
         axios.get('/api/reserveexpenses', {
             // params: {

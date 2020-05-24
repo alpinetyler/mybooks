@@ -41,6 +41,11 @@ class FixedExpenses extends Component {
         })
 
     componentDidMount() {
+
+        let { user } = this.props
+        let userid = user && user.id
+
+        console.log("FixedExpensesCDM:", userid)
        
         axios.get('/api/fixedexpenses').then((res) => {
             this.setState({
@@ -143,6 +148,7 @@ class FixedExpenses extends Component {
         // let beginningBalance = 8000
         
         let { user } = this.props
+
         return (
             <div className="wrapper">
         <>    

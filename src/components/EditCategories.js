@@ -25,18 +25,23 @@ class EditCategories extends Component {
 
     componentDidMount = () => {
 
+        // get logged in user info to pass as parameter to database
+        let {user} = this.props
+        let id = user && user.id
 
-        // console.log(111111, this.state.userid)
-        // console.log("EditCategoriesCDM:", this.state.userid)
+        console.log("EnterExpenseCDM:", id)
+       
 
-        axios.get('/api/categories/').then((res) => {
+        axios.get('/api/categories', {
+            params: {
+            
+                userid: id
+            }
+        }).then((res) => {
             this.setState({
-                categories: res.data
+                expenses: res.data
             })
-        }).catch(err => console.log('error getting categories:', err))
-
-          //keep user logged in after refresh
-          this.props.getUser()
+        }).catch(err => console.log('error getting expenses:', err))
     }
 
     createCategory = newCategory => {
