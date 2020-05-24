@@ -1,7 +1,9 @@
 module.exports = {
     read: (req, res) => {
         let db = req.app.get('db')
-        db.getCategories().then((response) => {
+        let userid = req.query.userid
+        console.log("categories userid is:", userid)
+        db.getCategories(userid).then((response) => {
             res.send(response)
         }).catch(err => console.log(err))
     },

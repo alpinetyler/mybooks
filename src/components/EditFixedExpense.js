@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
 //    //display number in us currency format
 // const formatter = new Intl.NumberFormat('en-US', {
 //     style: 'currency',
@@ -9,7 +13,7 @@ import axios from 'axios';
 //     })
 
 
-export default class EditExpense extends Component {
+class EditFixedExpense extends Component {
     constructor(props) {
         super(props)
 
@@ -27,11 +31,24 @@ export default class EditExpense extends Component {
     }
 
     componentDidMount() {
-     axios.get('/api/categories').then((res) => {
+     // get logged in user info to pass as parameter to database
+     let {user} = this.props
+     let id = user && user.id
+
+     console.log("EnterExpenseCDM:", id)
+    
+
+     axios.get('/api/categories', {
+         params: {
+         
+             userid: id
+         }
+     }).then((res) => {
          this.setState({
              categories: res.data
          })
-     }).catch(err => console.log('error getting categories:', err))
+     }).catch(err => console.log('error getting expenses:', err))
+
  }
 
     handleChange = e => {
@@ -149,3 +166,11 @@ let styles = {
      width: '10px'
  }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(EditFixedExpense)

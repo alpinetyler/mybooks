@@ -65,7 +65,7 @@ app.delete('/api/monthlist/:id', MonthCtrl.delete)//delete month
 app.post('/api/fixedexpenses', FixedExpenseCtrl.create)//create expense
 app.get('/api/fixedexpenses', FixedExpenseCtrl.read)//read expense
 app.put('/api/fixedexpenses/:id', FixedExpenseCtrl.update)//update expense
-app.delete('/api/fixedexpenses/:id', FixedExpenseCtrl.delete)//delete expense
+app.delete('/api/fixedexpenses/:id&:userid', FixedExpenseCtrl.delete)//delete expense
 
 // Endpoints for getting current totals for each category in the month
 app.get('/api/totals', totalsCtrl.read)//read totals

@@ -1,3 +1,3 @@
 SELECT * FROM fixedexpenses
-WHERE userid = 18
+WHERE userid = $1
 ORDER BY id ASC;

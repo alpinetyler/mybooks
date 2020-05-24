@@ -47,11 +47,16 @@ class FixedExpenses extends Component {
 
         console.log("FixedExpensesCDM:", userid)
        
-        axios.get('/api/fixedexpenses').then((res) => {
+        axios.get('/api/fixedexpenses', {
+            params: {
+            
+                userid: userid
+            }
+        }).then((res) => {
             this.setState({
                 fixedexpenses: res.data
             })
-        }).catch(err => console.log('error getting fixed expenses:', err))
+        }).catch(err => console.log('error getting expenses:', err))
 
           //keep user logged in after refresh
           this.props.getUser()
@@ -110,8 +115,13 @@ class FixedExpenses extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
+
+                let { user } = this.props
+                let userid = user && user.id
+
+
             // console.log(1111, id)
-            axios.delete(`/api/fixedexpenses/${id}`)
+            axios.delete(`/api/fixedexpenses/${id}&${userid}`)
             .then(res => this.setState({ fixedexpenses: res.data }))
             .catch(err => console.log(err))
               swal("Poof! Your fixed expense has been deleted!", {

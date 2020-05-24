@@ -39,9 +39,12 @@ class EditCategories extends Component {
             }
         }).then((res) => {
             this.setState({
-                expenses: res.data
+                categories: res.data
             })
         }).catch(err => console.log('error getting expenses:', err))
+
+          //keep user logged in after refresh
+          this.props.getUser()
     }
 
     createCategory = newCategory => {

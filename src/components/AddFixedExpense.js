@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
 // var today = new Date();
 // var date = (today.getMonth() + 1) + '/' + today.getDate();
 
@@ -13,15 +17,20 @@ import axios from 'axios';
 //     minimumFractionDigits: 2
 // })
 
-export default class AddFixedExpense extends Component {
+class AddFixedExpense extends Component {
     constructor(props) {
         super(props)
+
+        // get logged in user info to pass as parameter to database
+        let {user} = this.props
+        let id = user && user.id
+
         this.state = {
             name: '',
             amount: '',
             notes: '',
             category: '',
-            userid: 1,
+            userid: id,
 
             fixedexpenses: [],
             categories: [],
@@ -31,11 +40,22 @@ export default class AddFixedExpense extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/categories').then((res) => {
+         // get logged in user info to pass as parameter to database
+         let {user} = this.props
+         let id = user && user.id
+ 
+        
+        axios.get('/api/categories', {
+            params: {
+            
+                userid: id
+            }
+        }).then((res) => {
             this.setState({
                 categories: res.data
             })
         }).catch(err => console.log('error getting expenses:', err))
+
     }
 
     handleChange = e => {
@@ -48,12 +68,17 @@ export default class AddFixedExpense extends Component {
     handleClick = () => {
         let newFixedExpense = this.state
         this.props.createFixedExpense(newFixedExpense)
+
+         // get logged in user info to pass as parameter to database
+         let {user} = this.props
+         let id = user && user.id
+
         this.setState({
             name: '',
             amount: '',
             notes: '',
             category: '',
-            userid: 1,
+            userid: id,
 
             add: false
         })
@@ -182,3 +207,12 @@ let styles = {
         fontSize: '15px'
     }
 }
+
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(AddFixedExpense)

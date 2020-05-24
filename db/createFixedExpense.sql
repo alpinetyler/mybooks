@@ -4,9 +4,9 @@ ${name},
 ${amount},
 ${notes},
 ${category},
-18
+${userid}
 );
 
 SELECT * FROM fixedexpenses
-WHERE userid = 18
+WHERE userid = ${userid}
 ORDER BY id ASC;
