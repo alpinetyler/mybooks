@@ -2,7 +2,7 @@ module.exports = {
     read: (req, res) => {
         let db = req.app.get('db')
         let userid= req.query.userid
-        console.log("months userid is:", userid)
+        // console.log("months userid is:", userid)
         db.getMonths(userid).then((response) => {
             res.send(response)
         }).catch(err => console.log(err))

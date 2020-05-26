@@ -4,7 +4,7 @@ module.exports = {
         let month = req.query.month
         let year = req.query.year
         let userid = req.query.userid
-        console.log("expense userid is:", userid, year, month)
+        // console.log("expense userid is:", userid, year, month)
         db.getExpenses(month, year, userid).then((response) => {
             res.send(response)
         }).catch(err => console.log(err))

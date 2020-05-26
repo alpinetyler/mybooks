@@ -2,7 +2,7 @@ module.exports = {
     read: (req, res, next) => {
         let db = req.app.get('db')
         let userid= req.query.userid
-        console.log("fixedexpenses userid is:", userid)
+        // console.log("fixedexpenses userid is:", userid)
         db.getFixedExpenses(userid).then((response) => {
             res.send(response)
         }).catch(err => console.log(err))
@@ -10,7 +10,7 @@ module.exports = {
 
     create: (req, res) => {
         let db = req.app.get('db')
-        console.log("create fixed expense id:", req.body.userid)
+        // console.log("create fixed expense id:", req.body.userid)
         db.createFixedExpense(req.body).then(response => {
             res.send(response)
         }).catch(err => console.log(err))

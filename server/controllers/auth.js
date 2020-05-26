@@ -30,7 +30,7 @@ module.exports = {
        res.send(req.session.user)
     
         } catch (error) {
-            console.log('there was an error')
+            // console.log('there was an error')
             res.status(500).send(error)
         }
 
