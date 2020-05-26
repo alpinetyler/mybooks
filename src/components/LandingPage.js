@@ -18,7 +18,7 @@ function Landing(props) {
             
             : 
             
-            <LoginForm></LoginForm>}
+            <LoginForm />}
             
             </span>
 
