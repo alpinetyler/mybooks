@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 
-export default class AddMonth extends Component {
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
+
+class AddMonth extends Component {
     constructor(props){
         super(props)
+
+
+        // get logged in user info to pass as parameter to database
+        let {user} = this.props
+        let userid = user && user.id
+
         this.state = {
             monthname: '',
             monthnumber: '',
-            years: ''
+            years: '',
+            userid: userid
         }
     }
 
@@ -106,3 +118,11 @@ export default class AddMonth extends Component {
         )
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(AddMonth)

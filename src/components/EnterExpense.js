@@ -69,9 +69,9 @@ class EnterExpense extends Component {
 
         // get logged in user info to pass as parameter to database
         let {user} = this.props
-        let id = user && user.id
+        let userid = user && user.id
 
-        console.log("EnterExpenseCDM:", id)
+        console.log("EnterExpenseCDM:", userid)
        
 
         axios.get('/api/expenses', {
@@ -79,7 +79,7 @@ class EnterExpense extends Component {
                 
                 month: month,
                 year: year,
-                userid: id
+                userid: userid
             }
         }).then((res) => {
             this.setState({
@@ -87,7 +87,12 @@ class EnterExpense extends Component {
             })
         }).catch(err => console.log('error getting expenses:', err))
 
-        axios.get('/api/monthlist').then((res) => {
+        axios.get('/api/monthlist', {
+            params: {
+                
+                userid: userid
+            }
+        }).then((res) => {
             this.setState({
                 monthlist: res.data
             })

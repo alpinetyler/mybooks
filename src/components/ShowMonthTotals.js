@@ -3,6 +3,10 @@ import axios from 'axios';
 
 import '../App.css'
 
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
 
 // import './App.css'
 
@@ -13,7 +17,12 @@ const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2
 })
 
-export default class ShowMonthTotals extends Component{
+var today = new Date();
+//var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+var year = today.getFullYear();
+var month = today.getMonth() + 1
+
+class ShowMonthTotals extends Component{
     constructor(props){
         super(props)
         
@@ -24,13 +33,26 @@ export default class ShowMonthTotals extends Component{
 
     componentDidMount() {
 
-        // this.props.toggleDisplay()
+        let { user } = this.props
+        let userid = user && user.id
+
        
-        axios.get('/api/totals').then((res) => {
+        axios.get('/api/totals', {
+            params: {
+
+                month: month,
+                year: year,
+                userid: userid
+            }
+        }).then((res) => {
             this.setState({
                 totals: res.data
             })
-        }).catch(err => console.log('error getting month list:', err))
+        }).catch(err => console.log('error getting expenses:', err))
+
+          //keep user logged in after refresh
+          this.props.getUser()
+
 
     }
 
@@ -71,3 +93,12 @@ export default class ShowMonthTotals extends Component{
         )
     }
 }
+
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(ShowMonthTotals)

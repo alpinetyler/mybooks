@@ -3,15 +3,16 @@ VALUES(
     ${monthname},
     ${monthnumber},
     ${years},
-    18
+    ${userid}
 );
 
 INSERT INTO homeexpenses(name, amount, notes, category, userid, fulldate)
-SELECT fixedexpenses.name, fixedexpenses.amount, fixedexpenses.notes, fixedexpenses.category, 18, to_date(concat(${years}, ${monthnumber}, 01), 'YYYYMMDD')
+SELECT fixedexpenses.name, fixedexpenses.amount, fixedexpenses.notes, fixedexpenses.category, fixedexpenses.userid, to_date(concat(${years}, ${monthnumber}, 01), 'YYYYMMDD')
 FROM fixedexpenses
+WHERE fixedexpenses.userid = ${userid}
 ORDER BY id;
 
 
 SELECT * FROM monthlist
-WHERE userid = 18
+WHERE userid = ${userid}
 ORDER BY years, monthnumber ASC;
