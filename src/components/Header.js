@@ -26,7 +26,7 @@ function Header(props) {
                     
                     <span className="menu">
 
-                        <Link to={'/'}>
+                        <Link to={'EnterExpense'}>
                             <span>Home</span>
                         </Link>
 
@@ -46,7 +46,7 @@ function Header(props) {
                             <span></span>Change Month</span>
                         </Link> */}
 
-                        <Link to={'EditCategories'} >
+                        <Link to={'/'} >
                             <span> Categories</span>
                         </Link>
 

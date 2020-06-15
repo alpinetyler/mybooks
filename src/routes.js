@@ -9,9 +9,9 @@ import ReserveExpenses from './components/ReserveExpenses';
 
 export default (
     <Switch>
-        <Route exact path="/" component={EnterExpense} />
+        <Route exact path="/" component={EditCategories} />
         <Route path="/FixedExpenses" component={FixedExpenses} />
-        <Route path="/EditCategories" component={EditCategories} />
+        <Route path="/EnterExpense" component={EnterExpense} />
         <Route path="/ShowMonthTotals" component={ShowMonthTotals} /> 
         <Route path="/AddMonth" component={AddMonth} />  
         <Route path="/ReserveExpenses" component={ReserveExpenses} />
