@@ -37,7 +37,7 @@ class LoginForm extends Component {
 
     handleSubmit = () => {
         let { email, password } = this.state
-        this.props.login({ email, password })
+        this.props.login({ email, password }) //goes to user.js in redux
     }
 
     render() {
