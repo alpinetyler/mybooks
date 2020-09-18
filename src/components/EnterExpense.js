@@ -42,6 +42,7 @@ class EnterExpense extends Component {
             monthlist: [],
             month: '',
             year: '',
+            beginningbalance:'',
             display: false,
             create: false,
             fixedexpenses: false
@@ -138,10 +139,12 @@ class EnterExpense extends Component {
         })
     }
 
-    setMonth = (month, year) => {
+    setMonth = (month, year, beginningbalance) => {
         this.setState({
             month: month,
-            year: year
+            year: year,
+            beginningbalance: beginningbalance
+
         })
     }
     
@@ -217,14 +220,15 @@ class EnterExpense extends Component {
     }
 
     render() {
-        let beginningBalance = 8000
+        let beginningbalance = this.state.beginningbalance
         let { user } = this.props
         let id = user && user.id
         // console.log("render:", id)
         
         // console.log("this is the userid:", id)
         
-        //console.log(1111, this.state.monthlist)
+        console.log("beginning balance = ", beginningbalance)
+
         return (
             
             <div className="wrapper">
@@ -240,7 +244,7 @@ class EnterExpense extends Component {
                 {this.state.monthlist.map((monthlist, index) => {
                     return (
                         <span className="magicbutton" key={index} 
-                        onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years)}>
+                        onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years, monthlist.beginningbalance)}>
                             <a>{`${monthlist.monthname} ${monthlist.years}`}  |   </a></span>
                         
                     )
@@ -273,7 +277,7 @@ class EnterExpense extends Component {
 
                 }
                 <div><p></p></div>
-                 <div id="listExpense">Beginning Balance = {formatter.format(beginningBalance)}</div>
+                 <div id="listExpense">Beginning Balance = {formatter.format(beginningbalance)}</div>
                  <div> 
                  </div>
 
@@ -301,7 +305,7 @@ class EnterExpense extends Component {
                             expense={expense}
                             updateExpense={this.updateExpense}
                             deleteExpense={() => this.deleteExpense(expense.id)}
-                            beginningBalance={beginningBalance} />
+                            beginningBalance={this.state.beginningbalance} />
 
                     )
                 })}

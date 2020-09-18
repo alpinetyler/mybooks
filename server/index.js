@@ -56,9 +56,10 @@ app.post('/api/categories', CategoryCtrl.create)//create category
 app.get('/api/categories', CategoryCtrl.read)//read categories
 app.delete('/api/categories/:id&:userid', CategoryCtrl.delete)//delete category
 
-// Create, Read, Delete months
+// Full CRUD for managing months, including beginning balance
 app.post('/api/monthlist', MonthCtrl.create)//create month
 app.get('/api/monthlist', MonthCtrl.read)//read months
+app.put('/api/monthlist/:id', MonthCtrl.update)//update month
 app.delete('/api/monthlist/:id', MonthCtrl.delete)//delete month
 
 // Full CRUD for managing fixed expenses
@@ -82,6 +83,6 @@ app.post('/auth/login', AuthCtrl.login)
 app.get('/auth/logout', AuthCtrl.logout)
 app.get('/auth/currentUser', AuthCtrl.currentUser)
 
-// app.get('*', (req, res)=>{
-//     res.sendFile(path.join(__dirname, '../build/index.html'));
-// });
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});

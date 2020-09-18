@@ -16,6 +16,17 @@ module.exports = {
         }).catch(err => console.log(err))
     },
 
+    update: (req, res) => {
+        let { id } = req.params
+        let db = req.app.get('db')
+        let month = req.body
+        // console.log(9999, fixedexpenses)
+        months.id = id // do I need this here?
+        db.updateMonth(month).then(response => {
+            res.send(response)
+        }).catch(err => console.log(err))
+    },
+
     delete: (req, res) => {
         let db = req.app.get('db');
         const { id } = req.params;//get this from param on url

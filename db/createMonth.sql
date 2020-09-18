@@ -1,8 +1,9 @@
-INSERT INTO monthlist(monthname, monthnumber, years, userid)
+INSERT INTO monthlist(monthname, monthnumber, years, beginningbalance, userid)
 VALUES(
     ${monthname},
     ${monthnumber},
     ${years},
+    ${beginningbalance},
     ${userid}
 );
 

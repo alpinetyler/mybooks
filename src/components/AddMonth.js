@@ -18,6 +18,7 @@ class AddMonth extends Component {
             monthname: '',
             monthnumber: '',
             years: '',
+            beginningbalance: '',
             userid: userid
         }
     }
@@ -58,6 +59,7 @@ class AddMonth extends Component {
             monthname: '',
             monthnumber: '',
             years: '',
+            beginningbalance: '',
             create: false
         })
     }
@@ -91,6 +93,14 @@ class AddMonth extends Component {
                     <option value="2023">2023</option>
                     <option value="2024">2024</option>
                 </select>
+                </p>
+                <p>
+                    <input 
+                    type="number" 
+                    name="beginningbalance" 
+                    onChange={this.handleChange} 
+                    value={this.state.beginningbalance}
+                    placeholder="Enter Beginning Balance" />
                 </p>
                 
 
