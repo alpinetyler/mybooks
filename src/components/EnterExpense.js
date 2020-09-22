@@ -90,16 +90,31 @@ class EnterExpense extends Component {
 
         axios.get('/api/monthlist', {
             params: {
-                
+
                 userid: userid
             }
         }).then((res) => {
+            //console.log("resdataformonthlistis ", res.data)
             this.setState({
                 monthlist: res.data
             })
         }).catch(err => console.log('error getting month list:', err))
 
-         //keep user logged in after refresh
+        axios.get('/api/beginningbalance', {
+            params: {
+
+                month: month,
+                year: year,
+                userid: userid
+            }
+        }).then((res) => {
+            const {beginningbalance} = res.data[0]
+            this.setState({
+                beginningbalance: beginningbalance
+            })
+        }).catch(err => console.log('error getting beginning balance:', err))
+
+        //keep user logged in after refresh
          this.props.getUser()
 
     }
