@@ -8,6 +8,18 @@ module.exports = {
         }).catch(err => console.log(err))
     },
 
+    getbal: (req, res) => {
+        let db = req.app.get('db')
+        let userid = req.query.userid
+        let month = req.query.month
+        let year = req.query.year
+        console.log("beginningbalance info is:", userid, month, year)
+        db.getBeginningBalance(userid, month, year).then((response) => {
+            res.send(response) 
+            console.log("response is: ", response)
+        }).catch(err => console.log(err))
+    },
+
     create: (req, res) => {
         let db = req.app.get('db')
         //console.log(1111, req.body)

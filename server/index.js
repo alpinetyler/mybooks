@@ -61,6 +61,7 @@ app.post('/api/monthlist', MonthCtrl.create)//create month
 app.get('/api/monthlist', MonthCtrl.read)//read months
 app.put('/api/monthlist/:id', MonthCtrl.update)//update month
 app.delete('/api/monthlist/:id', MonthCtrl.delete)//delete month
+app.get('/api/beginningbalance', MonthCtrl.getbal)//get beginning balance for initial month
 
 // Full CRUD for managing fixed expenses
 app.post('/api/fixedexpenses', FixedExpenseCtrl.create)//create expense
