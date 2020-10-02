@@ -1,7 +1,7 @@
 module.exports = {
     read: (req, res) => {
         let db = req.app.get('db')
-        let userid= req.query.userid
+        let userid = req.query.userid
         // console.log("months userid is:", userid)
         db.getMonths(userid).then((response) => {
             res.send(response)
@@ -13,10 +13,10 @@ module.exports = {
         let userid = req.query.userid
         let month = req.query.month
         let year = req.query.year
-        console.log("beginningbalance info is:", userid, month, year)
+        // console.log("beginningbalance info is:", userid, month, year)
         db.getBeginningBalance(userid, month, year).then((response) => {
-            res.send(response) 
-            console.log("response is: ", response)
+            res.send(response)
+            // console.log("response is: ", response)
         }).catch(err => console.log(err))
     },
 
