@@ -26,10 +26,10 @@ massive(CONNECTION_STRING).then(db => {
 app.use(express.json())
 
 //information to point to hosting server
-//app.use( express.static( `${__dirname}/../build` ) );
+app.use( express.static( `${__dirname}/../build` ) );
 
-const publicPath = path.join(__dirname, '..', 'public');
-app.use(express.static(publicPath));
+// const publicPath = path.join(__dirname, '..', 'public');
+// app.use(express.static(publicPath));
 
 
 
