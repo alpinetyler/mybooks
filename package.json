@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "create-react-app": "^3.4.1",
     "dotenv": "^8.0.0",
@@ -26,8 +26,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
-    
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,5 +56,5 @@
     "nodemon": "^1.19.4",
     "serialize-javascript": "^5.0.1"
   },
-  "homepage": "http://alpinetyler.github.io/mybooks/"
+  "homepage": "http://clarence-associates.com/"
 }

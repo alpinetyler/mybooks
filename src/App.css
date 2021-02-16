@@ -76,7 +76,7 @@
 }
 
 .entertainment {
-  color: darkoranget;
+  color: darkorange;
 } 
 
 .savings {
@@ -86,6 +86,10 @@
 .donations {
   color: darkcyan;
 } 
+
+.AMEX {
+  color:#FF00CC;
+}
 
 .listExpense {
   font-size: 18px;
@@ -509,9 +513,10 @@ font-size: 15px;
     font-size: 15px;
 }
 
+
 .mainlogout:hover {
-color: black;
-font-size: 20px; 
+color: orange;
+/* font-size: 20px;  */
 }
 
 .loginscreen {
