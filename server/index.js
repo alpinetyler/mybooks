@@ -26,7 +26,7 @@ massive(CONNECTION_STRING).then(db => {
 app.use(express.json())
 
 //information to point to hosting server
-app.use( express.static( `${__dirname}/../build` ) );
+//app.use( express.static( `${__dirname}/../build` ) );
 
 const publicPath = path.join(__dirname, '..', 'public');
 app.use(express.static(publicPath));
@@ -86,5 +86,5 @@ app.get('/auth/logout', AuthCtrl.logout)
 app.get('/auth/currentUser', AuthCtrl.currentUser)
 
 app.get('*', (req, res) =>{ 
-    res.sendFile(path.join(__dirname, '../build/index.html'));
+    res.sendFile(path.join(publicPath, 'index.html'));
 });
