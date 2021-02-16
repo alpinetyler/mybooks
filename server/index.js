@@ -28,7 +28,8 @@ app.use(express.json())
 //information to point to hosting server
 app.use( express.static( `${__dirname}/../build` ) );
 
-
+const publicPath = path.join(__dirname, '..', 'public');
+app.use(express.static(publicPath));
 
 
 
@@ -41,7 +42,7 @@ app.use(session({
     }
 }))
 
-app.listen(SERVER_PORT, () => {
+app.listen(SERVER_PORT || process.env.PORT, () => {
     console.log('we are now listening on port', SERVER_PORT)
 })
 
@@ -84,6 +85,6 @@ app.post('/auth/login', AuthCtrl.login)
 app.get('/auth/logout', AuthCtrl.logout)
 app.get('/auth/currentUser', AuthCtrl.currentUser)
 
-app.get('*', (req, res)=>{
+app.get('*', (req, res) =>{ 
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
