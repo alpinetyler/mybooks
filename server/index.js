@@ -46,6 +46,13 @@ app.use(session({
 //     console.log('we are now listening on port', SERVER_PORT)
 // })
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('build'));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join('build', 'index.html'));
+    });
+  }
+
 let port = process.env.PORT;
 if (port == null || port == "") {
     port = SERVER_PORT;
