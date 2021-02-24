@@ -16,7 +16,7 @@ const AuthCtrl = require('./controllers/auth')
 
 const app = express()
 
-const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
+const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
@@ -26,7 +26,7 @@ massive(CONNECTION_STRING).then(db => {
 app.use(express.json())
 
 //information to point to hosting server
-app.use( express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/'));
 
 // const publicPath = path.join(__dirname, '..', 'public');
 // app.use(express.static(publicPath));
@@ -42,9 +42,18 @@ app.use(session({
     }
 }))
 
-app.listen(SERVER_PORT || process.env.PORT, () => {
-    console.log('we are now listening on port', SERVER_PORT)
-})
+// app.listen(SERVER_PORT || process.env.PORT, () => {
+//     console.log('we are now listening on port', SERVER_PORT)
+// })
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = SERVER_PORT;
+}
+
+app.listen(port, function () {
+    console.log("Server started successfully");
+});
 
 // Full CRUD for managing expenses
 app.post('/api/expenses', ExpenseCtrl.create)//create expense
@@ -85,6 +94,6 @@ app.post('/auth/login', AuthCtrl.login)
 app.get('/auth/logout', AuthCtrl.logout)
 app.get('/auth/currentUser', AuthCtrl.currentUser)
 
-app.get('*', (req, res) =>{ 
+app.get('*', (req, res) => {
     res.sendFile(path.join('build', 'index.html'));
 });
