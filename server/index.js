@@ -42,9 +42,9 @@ app.use(session({
     }
 }))
 
-// app.listen(SERVER_PORT || process.env.PORT, () => {
-//     console.log('we are now listening on port', SERVER_PORT)
-// })
+app.listen(SERVER_PORT || process.env.PORT, () => {
+    console.log('we are now listening on port', SERVER_PORT)
+})
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('build'));
@@ -53,14 +53,14 @@ if (process.env.NODE_ENV === 'production') {
     });
   }
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = SERVER_PORT;
-}
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//     port = SERVER_PORT;
+// }
 
-app.listen(port, function () {
-    console.log("Server started successfully");
-});
+// app.listen(port, function () {
+//     console.log("Server started successfully");
+// });
 
 // Full CRUD for managing expenses
 app.post('/api/expenses', ExpenseCtrl.create)//create expense
@@ -101,6 +101,11 @@ app.post('/auth/login', AuthCtrl.login)
 app.get('/auth/logout', AuthCtrl.logout)
 app.get('/auth/currentUser', AuthCtrl.currentUser)
 
+// app.get('*', (req, res) => {
+//     let path = require('path')
+//     res.sendFile(path.resolve('index.html'));
+// });
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join('build', 'index.html'));
+    res.sendFile(path.resolve('build', 'index.html'));
 });
