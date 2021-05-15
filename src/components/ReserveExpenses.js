@@ -15,17 +15,17 @@ import AddReserveExpense from './AddReserveExpense'
 // import Header from './Header';
 // import FixedExpenses from './FixedExpenses'
 
-var today = new Date();
+//var today = new Date();
 //var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-var year = today.getFullYear();
-var month = today.getMonth() + 1
+//var year = today.getFullYear();
+//var month = today.getMonth() + 1
 
 //display number in us currency format
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-})
+// const formatter = new Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency: 'USD',
+//     minimumFractionDigits: 2
+// })
 
 class ReserveExpenses extends Component {
     constructor(props) {

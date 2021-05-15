@@ -8,7 +8,7 @@ import { getUser } from '../redux/reducers/user'
 var today = new Date();
 var date = (today.getMonth() + 1) + '/' + today.getDate();
 
-var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+//var fulldate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 
 class AddReserveExpense extends Component {

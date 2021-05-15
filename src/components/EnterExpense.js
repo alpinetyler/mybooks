@@ -237,7 +237,7 @@ class EnterExpense extends Component {
     render() {
         let beginningbalance = this.state.beginningbalance
         let { user } = this.props
-        let id = user && user.id
+        //let id = user && user.id
         // console.log("render:", id)
         
         // console.log("this is the userid:", id)
