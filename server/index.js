@@ -28,7 +28,8 @@ app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }));
 
 //information to point to hosting server
-app.use(express.static(__dirname + '/'));
+//app.use(express.static(__dirname + '/'));
+//app.use(express.static(path_join(__dirname, '../client/build')))
 
 // const publicPath = path.join(__dirname, '..', 'public');
 // app.use(express.static(publicPath));
