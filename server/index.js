@@ -3,7 +3,7 @@ const express = require('express')
 require('dotenv/config')
 const massive = require('massive')
 const session = require('express-session')
-const cookieSession = require('cookie-session');
+//const cookieSession = require('cookie-session');
 // const twilio = require('twilio');
 
 
@@ -37,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.use(cookieSession({
+app.use(session({
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
