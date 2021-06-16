@@ -27,8 +27,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
 //information to point to hosting server
-//app.use(express.static(__dirname + '/'));
-app.use(express.static(path.join(__dirname, "client/public")));
+app.use(express.static(__dirname + '/'));
 
 // const publicPath = path.join(__dirname, '..', 'public');
 // app.use(express.static(publicPath));
@@ -109,5 +108,5 @@ app.get('/auth/currentUser', AuthCtrl.currentUser)
 // });
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname, "client", "public", "index.html");
+    res.sendFile(path.resolve('build', 'index.html'));
 });
