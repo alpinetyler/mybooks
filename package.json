@@ -56,5 +56,8 @@
       "src/*",
       "public/*"
     ]
-  }
+  },
+  "worker": "node server/index.js",
+  "start": "node server/index.js",
+  "test": "node test.js"
 }
