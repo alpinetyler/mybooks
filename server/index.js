@@ -24,9 +24,11 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.use(express.json())
+app.use(express.urlencoded({extended: true}));
 
 //information to point to hosting server
 app.use(express.static(__dirname + '/'));
+
 
 // const publicPath = path.join(__dirname, '..', 'public');
 // app.use(express.static(publicPath));
