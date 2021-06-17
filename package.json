@@ -27,6 +27,8 @@
     "sweetalert": "^2.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -59,5 +61,9 @@
   },
   "worker": "node server/index.js",
   "start": "node server/index.js",
-  "test": "node test.js"
+  "test": "node test.js",
+  "devDependencies": {
+    "gh-pages": "^3.2.1"
+  },
+  "homepage": "https://alpinetyler.github.io/mybooks"
 }
