@@ -45,7 +45,7 @@ app.use(session({
     }
 }))
 
-app.listen(SERVER_PORT || process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log('we are now listening on port', SERVER_PORT)
 })
 
