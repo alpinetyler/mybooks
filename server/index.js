@@ -2,8 +2,8 @@ const path = require('path')
 const express = require('express')
 require('dotenv/config')
 const massive = require('massive')
-//const session = require('express-session')
-const session = require('cookie-session')
+const session = require('express-session')
+// const session = require('cookie-session')
 
 
 const ExpenseCtrl = require('./controllers/expenses')
