@@ -73,7 +73,7 @@ class LoginForm extends Component {
                     placeholder="  Password" 
                     onChange={this.handleChange}/>{' '}
                 <p><button className="saveChangesButton" onClick={this.handleSubmit}>login</button></p>
-                <button className="signupbutton" onClick={this.toggleSignup} >Sign Up</button>
+                <button className="signupbutton" onClick={this.toggleSignup} >Sign Up!</button>
                 </div>
                 
                 }
