@@ -16,9 +16,9 @@ const AuthCtrl = require('./controllers/auth')
 
 const app = express()
 
-const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
+const { SERVER_PORT, SESSION_SECRET, DATABASE_URL } = process.env
 
-massive(CONNECTION_STRING).then(db => {
+massive(DATABASE_URL).then(db => {
     app.set('db', db)
     console.log('the db is now connected!')
 })
