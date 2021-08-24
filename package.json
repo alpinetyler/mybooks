@@ -44,7 +44,7 @@
       "last 1 safari version"
     ]
   },
-  "main": "server/index.js",
+  "main": "server/app.js",
   "proxy": "http://localhost:5050",
   "nodemonConfig": {
     "ext": "js,sql",
