@@ -256,14 +256,27 @@ class EnterExpense extends Component {
             <h3>
                     {/* <p>{year} Budget</p> */}
                 {/* <p><Link className="btn fixedexpenses" to={'/FixedExpenses'}>Fixed Expenses</Link></p> */}
-                {this.state.monthlist.map((monthlist, index) => {
+                
+                <div class="dropdown">
+                        <button class="dropbtn">Past Months</button>
+                        <div class="dropdown-content">
+                        {this.state.monthlist.map((monthlist, index) => {
                     return (
                         <span className="magicbutton" key={index} 
                         onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years, monthlist.beginningbalance)}>
-                            <a>{`${monthlist.monthname} ${monthlist.years}`}  |   </a></span>
+                            <a>{`${monthlist.monthname} ${monthlist.years}`}</a>
+                            
+                        </span>
+
                         
                     )
-                })}</h3>
+                })}
+                        
+                         </div>
+                        </div>
+                
+                
+                </h3>
                 
                 {
                     this.state.create ?
