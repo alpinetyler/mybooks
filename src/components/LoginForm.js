@@ -55,7 +55,7 @@ class LoginForm extends Component {
                 </div>
                 :
                 <div className="loginbox">   
-                <h3>User Login</h3>
+                <h3>User Loogin</h3>
             
                 <p><span style={styles.icon} className="fa">&#xf007; </span>
                 <input
