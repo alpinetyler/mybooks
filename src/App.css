@@ -99,7 +99,7 @@
 }
 
 .hoverdelete {
-  color: rgb(202, 199, 199);
+  color: red;
   transition: color 0.1s linear;
  -webkit-transition: color 0.1s linear;
  -moz-transition: color 0.1s linear;
@@ -562,6 +562,10 @@ color: orange;
 
 .dropdown-content a:hover {background-color: #ddd;}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #2d88d3;
+}
