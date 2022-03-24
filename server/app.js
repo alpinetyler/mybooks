@@ -110,6 +110,8 @@ app.get('/auth/currentUser', AuthCtrl.currentUser)
 //     res.sendFile(path.resolve('index.html'));
 // });
 
+
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve('build', 'index.html'));
 });

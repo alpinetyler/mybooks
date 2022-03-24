@@ -99,7 +99,7 @@
 }
 
 .hoverdelete {
-  color: red;
+  color: rgb(197, 174, 174);
   transition: color 0.1s linear;
  -webkit-transition: color 0.1s linear;
  -moz-transition: color 0.1s linear;
