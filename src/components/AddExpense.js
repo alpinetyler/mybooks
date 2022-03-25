@@ -16,7 +16,7 @@ class AddExpense extends Component {
 
         let { user } = this.props
         let id = user && user.id
-        // console.log(999, id)
+       
 
         this.state = {
             name: '',
@@ -40,7 +40,7 @@ class AddExpense extends Component {
          let {user} = this.props
          let id = user && user.id
  
-         console.log("EnterExpenseCDM:", id)
+        //  console.log("EnterExpenseCDM:", id)
         
  
          axios.get('/api/categories', {
@@ -68,7 +68,7 @@ class AddExpense extends Component {
         let { user } = this.props
         let id = user && user.id
 
-        console.log("handleclick:", id)
+        // console.log("handleclick:", id)
 
         let newExpense = this.state
         this.props.createExpense(newExpense)

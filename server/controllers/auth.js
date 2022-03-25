@@ -14,6 +14,7 @@ module.exports = {
         let users = await db.findUserByEmail(email)
         let user = users[0]
 
+
         if(user) {
             return res.status(409).send('email already in db')
         }

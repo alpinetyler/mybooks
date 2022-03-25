@@ -29,7 +29,7 @@ class EditCategories extends Component {
         let {user} = this.props
         let id = user && user.id
 
-        console.log("EnterExpenseCDM:", id)
+        // console.log("EnterExpenseCDM:", id)
        
 
         axios.get('/api/categories', {
@@ -75,7 +75,7 @@ class EditCategories extends Component {
                 let { user } = this.props
                 let userid = user && user.id
 
-                console.log(2222, id, userid)
+                // console.log(2222, id, userid)
             axios.delete(`/api/categories/${id}&${userid}`)
             .then(res => this.setState({ categories: res.data }))
             .catch(err => console.log(err))

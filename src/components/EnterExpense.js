@@ -72,7 +72,7 @@ class EnterExpense extends Component {
         let {user} = this.props
         let userid = user && user.id
 
-        console.log("EnterExpenseCDM:", userid)
+        // console.log("EnterExpenseCDM:", userid)
        
 
         axios.get('/api/expenses', {
@@ -242,7 +242,7 @@ class EnterExpense extends Component {
         
         // console.log("this is the userid:", id)
         
-        console.log("beginning balance = ", beginningbalance)
+        // console.log("beginning balance = ", beginningbalance)
 
         return (
             
@@ -257,9 +257,9 @@ class EnterExpense extends Component {
                     {/* <p>{year} Budget</p> */}
                 {/* <p><Link className="btn fixedexpenses" to={'/FixedExpenses'}>Fixed Expenses</Link></p> */}
                 
-                <div class="dropdown">
-                        <button class="dropbtn">Past Months</button>
-                        <div class="dropdown-content">
+                <div className="dropdown">
+                        <button className="dropbtn">Past Months</button>
+                        <div className="dropdown-content">
                         {this.state.monthlist.map((monthlist, index) => {
                     return (
                         <span className="magicbutton" key={index} 

@@ -32,7 +32,7 @@
          let {user} = this.props
          let id = user && user.id
  
-         console.log("EnterExpenseCDM:", id)
+        //  console.log("EnterExpenseCDM:", id)
         
  
          axios.get('/api/categories', {

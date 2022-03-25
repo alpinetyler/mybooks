@@ -45,7 +45,7 @@ class FixedExpenses extends Component {
         let { user } = this.props
         let userid = user && user.id
 
-        console.log("FixedExpensesCDM:", userid)
+        // console.log("FixedExpensesCDM:", userid)
        
         axios.get('/api/fixedexpenses', {
             params: {
