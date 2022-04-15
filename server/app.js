@@ -14,23 +14,27 @@ const totalsCtrl = require('./controllers/totals')
 const ReserveExpenseCtrl = require('./controllers/reserveexpenses')
 const AuthCtrl = require('./controllers/auth')
 
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 const app = express()
 
 const { SERVER_PORT, SESSION_SECRET, DATABASE_URL } = process.env
 
+
 massive(DATABASE_URL).then(db => {
     app.set('db', db)
     console.log('the db is now connected!')
-})
+}).catch(err => console.log(err))
+
 
 app.use(express.json())
 //app.use(express.static("public"))
-app.use('/static', express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded({ extended: true }));
+// app.use('/static', express.static(path.join(__dirname, 'public')))
+// app.use(express.urlencoded({ extended: true }));
 
 //information to point to hosting server
-//app.use(express.static(__dirname + '/'));
-//app.use(express.static(path_join(__dirname, '../client/build')))
+// app.use(express.static(__dirname + '/'));
+// app.use(express.static(path_join(__dirname, '../client/build')))
 
 // const publicPath = path.join(__dirname, '..', 'public');
 // app.use(express.static(publicPath));
@@ -50,12 +54,12 @@ app.listen(process.env.PORT || SERVER_PORT, () => {
     console.log('we are now listening on port', SERVER_PORT)
 })
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('build'));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join('build', 'index.html'));
-    });
-  }
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('build'));
+//     app.get('*', (req, res) => {
+//       res.sendFile(path.join('build', 'index.html'));
+//     })
+//   }
 
 // let port = process.env.PORT;
 // if (port == null || port == "") {
