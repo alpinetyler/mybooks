@@ -325,7 +325,7 @@ class EnterExpense extends Component {
                
                
                 
-                    
+                <AddExpense createExpense={this.createExpense} />  
                 {this.state.expenses.map((expense, index) => {
                     return (
                         <ListExpenses
@@ -337,7 +337,7 @@ class EnterExpense extends Component {
 
                     )
                 })}
-                <AddExpense createExpense={this.createExpense} />
+               
                 </tbody>
                 </table>
             </span>

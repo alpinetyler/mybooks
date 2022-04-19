@@ -197,7 +197,7 @@ class ReserveExpenses extends Component {
                 </tr>
                
                 
-                    
+                <AddReserveExpense createReserveExpense={this.createReserveExpense} />   
                 {this.state.expenses.map((expense, index) => {
                     return (
                         <ListReserveExpenses
@@ -209,7 +209,7 @@ class ReserveExpenses extends Component {
 
                     )
                 })}
-                <AddReserveExpense createReserveExpense={this.createReserveExpense} />
+                
                 </tbody>
                 </table>
 

@@ -6,4 +6,4 @@ FROM homeexpenses
 WHERE userid = $2
 AND extract(month FROM fulldate) = extract (month FROM CURRENT_DATE)
 AND extract(year FROM fulldate) = extract (year FROM CURRENT_DATE)
-ORDER BY id ASC;
+ORDER BY id DESC;

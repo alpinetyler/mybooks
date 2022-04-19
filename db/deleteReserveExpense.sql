@@ -5,5 +5,5 @@ select distinct id, name, date, amount, ischecked, notes, category, userid, sum(
 from homeexpenses
 WHERE category = 'reserve'
 AND userid = $2
-ORDER BY id ASC;
+ORDER BY id DESC;
 
