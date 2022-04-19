@@ -92,7 +92,7 @@ class EditCategories extends Component {
     
     render() {
         let { user } = this.props
-        let userid = user && user.id
+        //let userid = user && user.id
         return(
             <div>
                  <>    

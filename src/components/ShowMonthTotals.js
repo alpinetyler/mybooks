@@ -88,7 +88,7 @@ class ShowMonthTotals extends Component{
             })}
             </tbody>
            </table>
-            <p><button className='magicbutton' onClick={this.props.toggleDisplay}><a>Hide Totals</a></button></p>
+            <p><button className='magicbutton' onClick={this.props.toggleDisplay}>Hide Totals</button></p>
             </div>
         )
     }

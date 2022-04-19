@@ -470,6 +470,18 @@ font-size: 15px;
     color: lightblue;
   }
 
+  .dude{
+    transition: color 0.2s linear;
+    /* border-radius: 6px;
+    background-color: lightblue; */
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+  }
+
+  .dude:hover{
+    color: lightblue;
+  }
+
   .monthtotals {
     transition: opacity 0.5s;
     opacity: 1;

@@ -30,7 +30,7 @@ export default class ListExpense extends Component {
 
 
     render() {
-        let {expense, updateExpense, beginningBalance} = this.props
+        let {expense, updateExpense} = this.props //removed beginningBalance, not needed?
         
         // let {user} = this.props
         // let admin = user && user.isadmin

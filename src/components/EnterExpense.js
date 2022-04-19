@@ -264,7 +264,7 @@ class EnterExpense extends Component {
                     return (
                         <span className="magicbutton" key={index} 
                         onClick={e => this.setMonth(monthlist.monthnumber, monthlist.years, monthlist.beginningbalance)}>
-                            <a>{`${monthlist.monthname} ${monthlist.years}`}</a>
+                            <p className="dude">{`${monthlist.monthname} ${monthlist.years}`}</p>
                             
                         </span>
 
@@ -287,7 +287,7 @@ class EnterExpense extends Component {
                     </div>
                     :
                     <span className="magicbutton">
-                    <span onClick={this.toggleCreate}><a>Add Month |  </a></span>
+                    <span onClick={this.toggleCreate}><span className="dude">Add Month |  </span></span>
                     </span>
                 }
 
@@ -300,7 +300,7 @@ class EnterExpense extends Component {
                         </div>
                         :
                         <span className="magicbutton">  
-                        <span onClick={this.toggleDisplay}><a>Show Totals</a></span>
+                        <span onClick={this.toggleDisplay}><span className="dude">Show Totals</span></span>
                         </span>
 
                 }

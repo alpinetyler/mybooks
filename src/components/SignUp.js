@@ -61,7 +61,7 @@ class SignUp extends Component {
 
     render() {
         //de-structure user from redux props
-        let { user } = this.props
+        //let { user } = this.props
         return (
             <div className="addRentalSection">
 
@@ -117,15 +117,10 @@ let styles = {
     addForm: {
 
         width: 375,
-        padding: 15,
         text: 15,
-        margin: 20,
         fontFamily: 'Times New Roman, Times, serif',
-        boxShadow: '10px gray',
-        border: '1px black solid',
         padding: '10px 10px 10px 50px',
         margin: '10px',
-        // background: 'lightblue',
         border: 'black 2px solid',
         boxShadow: '10px 10px 5px grey'
     },
