@@ -6,10 +6,12 @@ import EditCategories from './components/EditCategories';
 import ShowMonthTotals  from './components/ShowMonthTotals';
 import AddMonth from './components/AddMonth';
 import ReserveExpenses from './components/ReserveExpenses';
+import Home from './components/Home';
 
 export default (
     <Switch>
-        <Route exact path="/" component={EditCategories} />
+        <Route exact path='/' component={Home} />
+        <Route path="/EditCategories" component={EditCategories} />
         <Route path="/FixedExpenses" component={FixedExpenses} />
         <Route path="/EnterExpense" component={EnterExpense} />
         <Route path="/ShowMonthTotals" component={ShowMonthTotals} /> 
