@@ -512,6 +512,7 @@ font-size: 15px;
       width: 330px;
       border: black 2px solid;
       box-shadow: 10px 10px 5px grey;
+      //background-color: lightblue;
   }
 
   .mainlogout {
